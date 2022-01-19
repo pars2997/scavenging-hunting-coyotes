@@ -1,0 +1,1537 @@
+Observation,Scent Marking,subject,nonfeed,month
+1600_Feeding_OBS1_10_17_2019.csv,3,1600,FALSE,Pretrial
+1600_Feeding_OBS3_10_23_2019.csv,4,1600,FALSE,Pretrial
+1600_FeedingTrial_OBS3_10_25_2019.csv,5,1600,FALSE,Pretrial
+1600_OBS1_10_11_2019_NonFeeding.csv,4,1600,TRUE,Pretrial
+1600_OBS2_10_14_2019_NonFeeding.csv,0,1600,TRUE,Pretrial
+1600_OBS2_Feeding_10_21_2019.csv,2,1600,FALSE,Pretrial
+1600_OBS3_10_15_2019_NonFeeding.csv,0,1600,TRUE,Pretrial
+1600_OBS4_10_23_2019_NonFeeding.csv,0,1600,TRUE,Pretrial
+1601 Feeding 10_28_2019.csv,0,1601,FALSE,Pretrial
+1601_Feeding_OBS1_10_21_2019.csv,1,1601,FALSE,Pretrial
+1601_Feeding_OBS2_10_22_2019.csv,0,1601,FALSE,Pretrial
+1601_Feeding_OBS3_10_24_2019.csv,2,1601,FALSE,Pretrial
+1601_OBS_4_NonFeeding_10_17_2019.csv,0,1601,TRUE,Pretrial
+1601_OBS1_10_10_2019_NonFeeding.csv,0,1601,TRUE,Pretrial
+1601_Obs2_10_11_2019_NonFeeding.csv,0,1601,TRUE,Pretrial
+1601_OBS3_10_14_2019_NonFeeding.csv,1,1601,TRUE,Pretrial
+1602 Feeding 10_31_2019.csv,4,1602,FALSE,Pretrial
+1602 Feeding 11_11_2019.csv,4,1602,FALSE,Pretrial
+1602 Feeding 11_12_2019.csv,3,1602,FALSE,Pretrial
+1602_Feeding_10_18_2019_OBS1.csv,3,1602,FALSE,Pretrial
+1602_OBS1_10_10_2019_NonFeeding.csv,0,1602,TRUE,Pretrial
+1602_OBS2_10_14_2015_Non Feeding.csv,0,1602,TRUE,Pretrial
+1602_OBS3_10_17_2019_Nonfeeding.csv,1,1602,TRUE,Pretrial
+1602_OBS4_NonFeeding_11_07_2019.csv,0,1602,TRUE,Pretrial
+1610 Feeding 11_11_2019.csv,1,1610,FALSE,Pretrial
+1610 Feeding 11_12_2019.csv,1,1610,FALSE,Pretrial
+1610 Feeding 11_13_2019.csv,0,1610,FALSE,Pretrial
+1610_FeedingTrial_10_18_2019_OBS1.csv,3,1610,FALSE,Pretrial
+1610_OBS1_10_11_2019_NonFeeding.csv,1,1610,TRUE,Pretrial
+1610_OBS3_10_15_2019_NonFeeding.csv,1,1610,TRUE,Pretrial
+1610_OBS3_NonFeeding_10_17_2019.csv,0,1610,TRUE,Pretrial
+1610_OBS4_Nonfeeding_10_18_2019.csv,0,1610,TRUE,Pretrial
+1617 Feeding 10_31_2019.csv,4,1617,FALSE,Pretrial
+1617 Feeding 11_11_2019.csv,2,1617,FALSE,Pretrial
+1617 Feeding 11_12_2019.csv,4,1617,FALSE,Pretrial
+1617_Feeding_OBS1_10_18_2019.csv,1,1617,FALSE,Pretrial
+1617_OBS1_10_10_2019_NonFeeding.csv,1,1617,TRUE,Pretrial
+1617_OBS2_10_14_2019_NonFeeding.csv,1,1617,TRUE,Pretrial
+1617_OBS3_NonFeeding_10_17_2019.csv,2,1617,TRUE,Pretrial
+1617_OBS4_NonFeeding_11_07_2019.csv,0,1617,TRUE,Pretrial
+1622 Feeding Observation 10_28_2019.csv,1,1622,FALSE,Pretrial
+1622_Feeding_OBS1_10_21_2019.csv,8,1622,FALSE,Pretrial
+1622_Feeding_OBS2_10_22_2019.csv,2,1622,FALSE,Pretrial
+1622_Feeding_OBS3_10_24_2019.csv,5,1622,FALSE,Pretrial
+1622_OBS1_10_10_2019_NonFeeding.csv,1,1622,TRUE,Pretrial
+1622_OBS2_10_11_2019_NonFeeding.csv,3,1622,TRUE,Pretrial
+1622_OBS3_10_14_2019_NonFeeding.csv,0,1622,TRUE,Pretrial
+1622_OBS4_10_17_2019_NonFeeding.csv,0,1622,TRUE,Pretrial
+1623_Feeding_OBS1_10_17_2019.csv,4,1623,FALSE,Pretrial
+1623_FeedingTrial_OBS3_10252019.csv,3,1623,FALSE,Pretrial
+1623_OBS1_10_11_2019_NonFeeding.csv,2,1623,TRUE,Pretrial
+1623_OBS2_10_14_2019_NonFeeding.csv,0,1623,TRUE,Pretrial
+1623_OBS2_Feeding_10_21_2019.csv,6,1623,FALSE,Pretrial
+1623_OBS3_10_15_2019_NonFeeding.csv,1,1623,TRUE,Pretrial
+1623_OBS3_10_23_2019_NonFeeding.csv,0,1623,TRUE,Pretrial
+1623_OBS3_Feeding_10_23_2019.csv,6,1623,FALSE,Pretrial
+1703 Feeding 11_11_2019.csv,2,1703,FALSE,Pretrial
+1703 Feeding 11_12_2019.csv,1,1703,FALSE,Pretrial
+1703 Feeding 11_13_2019.csv,0,1703,FALSE,Pretrial
+1703_Feedings_OBS1_10_18_2019.csv,6,1703,FALSE,Pretrial
+1703_OBS1_10_11_2109_NonFeeding.csv,1,1703,TRUE,Pretrial
+1703_OBS3_10_15_2019_NonFeeding.csv,2,1703,TRUE,Pretrial
+1703_Obs3_10_17_2019_NonFeeding.csv,2,1703,TRUE,Pretrial
+1703_OBS4_10_18_2019_NonFeeding.csv,0,1703,TRUE,Pretrial
+1802_Feeding_OBS1_10_21_2019.csv,4,1802,FALSE,Pretrial
+1802_Feeding_OBS2_10_23_2019.csv,3,1802,FALSE,Pretrial
+1802_Feeding_OBS3_10_24_2019.csv,3,1802,FALSE,Pretrial
+1802_Feeding_OBS4_10_25_2019.csv,3,1802,FALSE,Pretrial
+1802_NonFeeding_OBS3_11_12_2019.csv,0,1802,TRUE,Pretrial
+1802_OBS1_10_22_2019_NonFeeding.csv,1,1802,TRUE,Pretrial
+1802_OBS2_10_24_2019_NonFeeding.csv,0,1802,TRUE,Pretrial
+1802_OBS4_11_14_2019_Nonfeeding.csv,0,1802,TRUE,Pretrial
+1803 Feeding 11_12_2019.csv,4,1803,FALSE,Pretrial
+1803 Feeding Trial 11_13_2019.csv,2,1803,FALSE,Pretrial
+1803_10_16_2019_Feeding_OBS1.csv,2,1803,FALSE,Pretrial
+1803_OBS1_10_10_2019_NonFeeding.csv,0,1803,TRUE,Pretrial
+1803_OBS2_10_11_2019_NonFeeding.csv,2,1803,TRUE,Pretrial
+1803_OBS3_10_14_2015_NonFeeding.csv,1,1803,TRUE,Pretrial
+1803_OBS4_10_16_2019_NonFeeding.csv,0,1803,TRUE,Pretrial
+1803_OBS4_Feeding.1_10_14_2019.csv,3,1803,FALSE,Pretrial
+1820_Feeding_OBS1_10_21_2019.csv,2,1820,FALSE,Pretrial
+1820_Feeding_OBS2_10_22_2019.csv,1,1820,FALSE,Pretrial
+1820_Feeding_OBS3_10_23_2019.csv,3,1820,FALSE,Pretrial
+1820_Feeding_OBS4_10_24_2019.csv,3,1820,FALSE,Pretrial
+1820_OBS1_10_10_2019_NonFeeding.csv,2,1820,TRUE,Pretrial
+1820_OBS2_10_14_2019_NonFeeding.csv,0,1820,TRUE,Pretrial
+1820_OBS3_10_16_2019_Nonfeeding.csv,0,1820,TRUE,Pretrial
+1820_OBS4_10_21_2019_Nonfeeding.csv,2,1820,TRUE,Pretrial
+1841_Feeding_OBS1_10_21_2019.csv,2,1841,FALSE,Pretrial
+1841_Feeding_OBS2_10_22_2019.csv,1,1841,FALSE,Pretrial
+1841_Feeding_OBS3_10_23_2019.csv,1,1841,FALSE,Pretrial
+1841_Feeding_OBS4_10_24_2019.csv,5,1841,FALSE,Pretrial
+1841_OBS1_10_10_2019_NonFeeding.csv,0,1841,TRUE,Pretrial
+1841_OBS2_10_14_2019_Non-feeding.csv,0,1841,TRUE,Pretrial
+1841_OBS3_NonFeeding_10_16_2019.csv,4,1841,TRUE,Pretrial
+1841_OBS4_10_21_2019_Nonfeeding.csv,1,1841,TRUE,Pretrial
+1842 Feeding Trial 10_28_2019.csv,1,1842,FALSE,Pretrial
+1842_Feeding_OBS1_10_21_2019.csv,2,1842,FALSE,Pretrial
+1842_Feeding_OBS2_10_22_2019.csv,1,1842,FALSE,Pretrial
+1842_Feeding_OBS3_10_24_2019.csv,3,1842,FALSE,Pretrial
+1842_OBS#_NonFeeding_11_7_2019.csv,0,1842,TRUE,Pretrial
+1842_OBS1_10_22_2019_NonFeeding.csv,2,1842,TRUE,Pretrial
+1842_OBS2_NonFeeding_10_23_2019.csv,0,1842,TRUE,Pretrial
+1842_OBS3_NonFeeding_10_24_2019.csv,0,1842,TRUE,Pretrial
+1850 Feeding 11_12_2019.csv,0,1850,FALSE,Pretrial
+1850 Feeding Trial 11_13_2019.csv,0,1850,FALSE,Pretrial
+1850 Feeding.csv,3,1850,FALSE,Pretrial
+1850_FeedingTrail1_10_16_2019.csv,1,1850,FALSE,Pretrial
+1850_OBS1_10_10_2019_NonFeeding.csv,4,1850,TRUE,Pretrial
+1850_OBS2_10_11_2019_NonFeeding.csv,1,1850,TRUE,Pretrial
+1850_OBS3_10_14_2019_NonFeeding.csv,3,1850,TRUE,Pretrial
+1850_OBS4_10_16_2019_NonFeeding.csv,0,1850,TRUE,Pretrial
+1851 Feeding10_28_2019.csv,0,1851,FALSE,Pretrial
+1851_Feeding_OBS1_10_21_2019.csv,1,1851,FALSE,Pretrial
+1851_Feeding_OBS2_10_22_2019.csv,0,1851,FALSE,Pretrial
+1851_Feeding_OBS3_10_24_2019.csv,0,1851,FALSE,Pretrial
+1851_NonFeeding_11_7_2019.csv,0,1851,TRUE,Pretrial
+1851_OBS1_NonFeeding_10_22_2019.csv,0,1851,TRUE,Pretrial
+1851_OBS2_Nonfeeding_10_23_2019.csv,0,1851,TRUE,Pretrial
+1851_OBS3_NonFeeding_10_24_2019.csv,1,1851,TRUE,Pretrial
+1853_Feeding_OBS2_10_23_2019.csv,2,1853,FALSE,Pretrial
+1853_Feeding_OBS3_10_24_2019.csv,1,1853,FALSE,Pretrial
+1853_Feeding_OBS4_10_25_2019.csv,0,1853,FALSE,Pretrial
+1853_NonFeeding_OBS3_11_12_2019.csv,0,1853,TRUE,Pretrial
+1853_OBS1_10_22_2019_NonFeeding.csv,0,1853,TRUE,Pretrial
+1853_OBS1_Feeding_10_21_2019.csv,2,1853,FALSE,Pretrial
+1853_OBS2_Nonfeeding_10_24_2019.csv,1,1853,TRUE,Pretrial
+1853_OBS4_NonFeeding_11_14_2019.csv,1,1853,TRUE,Pretrial
+January 1600 feeding OBS2.csv,2,1600,FALSE,January
+January 1600 feeding obs3.csv,4,1600,FALSE,January
+January 1600 feeding obs4.csv,3,1600,FALSE,January
+January 1600 Feeding_OBS1.csv,1,1600,FALSE,January
+January 1600 nonfeeding OBS 3.csv,1,1600,TRUE,January
+January 1600 Nonfeeding OBS1.csv,0,1600,TRUE,January
+January 1600 nonfeeding OBS2.csv,0,1600,TRUE,January
+January 1600 nonfeeding obs4.csv,2,1600,TRUE,January
+January 1601 Feeding OBS1.csv,4,1601,FALSE,January
+January 1601 Feeding OBS2.csv,4,1601,FALSE,January
+January 1601 feeding Obs3.csv,3,1601,FALSE,January
+January 1601 feeding obs4.csv,3,1601,FALSE,January
+January 1601 NonFeeding OBS1.csv,3,1601,TRUE,January
+January 1601 nonfeeding OBS2.csv,2,1601,TRUE,January
+January 1601 Nonfeeding OBS3.csv,3,1601,TRUE,January
+January 1601 nonfeeding PP8 1601 OBS3.csv,0,1601,TRUE,January
+January 1602 Feeding OBS1.csv,1,1602,FALSE,January
+January 1602 Feeding OBS2.csv,4,1602,FALSE,January
+January 1602 feeding OBS3.csv,3,1602,FALSE,January
+January 1602 feeding obs4.csv,3,1602,FALSE,January
+January 1602 NonFeeding OBS1.csv,2,1602,TRUE,January
+"January 1602 nonfeeding OBS2, PP5.csv",1,1602,TRUE,January
+January 1602 nonfeeding OBS3.csv,0,1602,TRUE,January
+January 1602 nonfeeding OBS4.csv,0,1602,TRUE,January
+January 1610 Feeding OBS1.csv,2,1610,FALSE,January
+January 1610 Feeding OBS2.csv,3,1610,FALSE,January
+January 1610 Feeding OBS3.csv,5,1610,FALSE,January
+January 1610 feeding obs4.csv,5,1610,FALSE,January
+January 1610 nonfeeding  OBS3.csv,0,1610,TRUE,January
+January 1610 nonfeeding obs2.csv,0,1610,TRUE,January
+January 1610 Nonfeeding OBS4.csv,0,1610,TRUE,January
+January 1610 NonFeeding_OBS1.csv,2,1610,TRUE,January
+January 1617 Feeding OBS2.csv,3,1617,FALSE,January
+January 1617 feeding OBS3.csv,2,1617,FALSE,January
+January 1617 feeding obs4.csv,2,1617,FALSE,January
+January 1617 Feeding_OBS1.csv,3,1617,FALSE,January
+January 1617 Nonfeeding OBS1.csv,2,1617,TRUE,January
+January 1617 Nonfeeding OBs2.csv,1,1617,TRUE,January
+January 1617 nonfeeding OBS3.csv,4,1617,TRUE,January
+January 1617 Nonfeeding OBS4.csv,0,1617,TRUE,January
+January 1622 Feeding Obs 2.csv,5,1622,FALSE,January
+January 1622 Feeding OBS1.csv,6,1622,FALSE,January
+January 1622 Feeding Obs3.csv,1,1622,FALSE,January
+January 1622 feeding obs4.csv,5,1622,FALSE,January
+January 1622 nonfeeding 1622 PP8 OBS3.csv,2,1622,TRUE,January
+January 1622 NonFeeding OBS1.csv,2,1622,TRUE,January
+January 1622 nonfeeding OBS2.csv,1,1622,TRUE,January
+January 1622 Nonfeeding OBS3 PP8.csv,0,1622,TRUE,January
+January 1623 feeding OBS1.csv,2,1623,FALSE,January
+January 1623 feeding OBS2.csv,2,1623,FALSE,January
+January 1623 feeding obs3.csv,3,1623,FALSE,January
+January 1623 feeding obs4.csv,4,1623,FALSE,January
+"January 1623 nonfeeding 1623, OBS3 PP7.csv",0,1623,TRUE,January
+January 1623 NonFeeding OBS1.csv,2,1623,TRUE,January
+January 1623 nonfeeding OBS2.csv,3,1623,TRUE,January
+January 1623 nonfeeding obs4.csv,6,1623,TRUE,January
+January 1703 Feeding OBS1.csv,0,1703,FALSE,January
+January 1703 Feeding OBS2.csv,2,1703,FALSE,January
+January 1703 feeding OBS3.csv,1,1703,FALSE,January
+January 1703 feeding obs4.csv,1,1703,FALSE,January
+January 1703 Nonfeeding OBS2.csv,0,1703,TRUE,January
+"January 1703 Nonfeeding OBS3, PP1.csv",0,1703,TRUE,January
+January 1703 Nonfeeding OBS3.csv,0,1703,TRUE,January
+January 1703 NonFeeding_Obs1.csv,0,1703,TRUE,January
+January 1802 Feeding OBS1.csv,4,1802,FALSE,January
+January 1802 Feeding Obs2.csv,4,1802,FALSE,January
+January 1802 feeding OBS3.csv,4,1802,FALSE,January
+January 1802 feeding obs4.csv,3,1802,FALSE,January
+January 1802 nonfeeding OBS2.csv,1,1802,TRUE,January
+January 1802 nonfeeding obs3 PP4.csv,0,1802,TRUE,January
+January 1802 Nonfeeding OBS4.csv,1,1802,TRUE,January
+January 1802 NonFeeding_Obs1.csv,1,1802,TRUE,January
+January 1803 feeding OBS1.csv,5,1803,FALSE,January
+January 1803 feeding obs2.csv,2,1803,FALSE,January
+January 1803 feeding obs3.csv,3,1803,FALSE,January
+January 1803 feeding obs4.csv,3,1803,FALSE,January
+January 1803 nonfeeding OBS2.csv,1,1803,TRUE,January
+January 1803 Nonfeeding OBS3.csv,0,1803,TRUE,January
+January 1803 nonfeeding obs4.csv,1,1803,TRUE,January
+January 1803 Nonfeeding_OBS1.csv,1,1803,TRUE,January
+January 1820 Feeding OBS1.csv,3,1820,FALSE,January
+January 1820 feeding OBS2.csv,4,1820,FALSE,January
+January 1820 feeding OBS3.csv,4,1820,FALSE,January
+January 1820 feeding obs4.csv,5,1820,FALSE,January
+January 1820 nonfeeding OBS2.csv,2,1820,TRUE,January
+January 1820 nonfeeding OBS3.csv,2,1820,TRUE,January
+January 1820 nonfeeding obs4.csv,1,1820,TRUE,January
+January 1820 NonFeeding_OBS1.csv,0,1820,TRUE,January
+January 1841 Feeding OBS1.csv,3,1841,FALSE,January
+January 1841 feeding OBS2.csv,0,1841,FALSE,January
+January 1841 feeding OBS3.csv,2,1841,FALSE,January
+January 1841 feeding obs4.csv,3,1841,FALSE,January
+"January 1841 nonfeeding 1841, OBS3, PP6.csv",1,1841,TRUE,January
+January 1841 nonfeeding OBS2.csv,2,1841,TRUE,January
+January 1841 Nonfeeding OBS3.csv,2,1841,TRUE,January
+January 1841 NonFeeding_OBS1.csv,0,1841,TRUE,January
+January 1842 Feeding OBS1.csv,2,1842,FALSE,January
+January 1842 Feeding OBS2.csv,3,1842,FALSE,January
+January 1842 Feeding OBS3.csv,2,1842,FALSE,January
+January 1842 feeding obs4.csv,2,1842,FALSE,January
+January 1842 nonfeeding obs2.csv,2,1842,TRUE,January
+January 1842 nonfeeding OBS3.csv,4,1842,TRUE,January
+January 1842 NonFeeding OBS4.csv,0,1842,TRUE,January
+January 1842 NonFeeding_OBS1.csv,1,1842,TRUE,January
+January 1850 Feeding OBS1.csv,4,1850,FALSE,January
+January 1850 feeding OBS2.csv,0,1850,FALSE,January
+January 1850 feeding obs3.csv,3,1850,FALSE,January
+January 1850 feeding obs4.csv,3,1850,FALSE,January
+"January 1850 nonfeeding 1850, OBS4, PP3.csv",0,1850,TRUE,January
+January 1850 Nonfeeding OBS2.csv,0,1850,TRUE,January
+January 1850 Nonfeeding OBS3.csv,1,1850,TRUE,January
+January 1850 NonFeeding_OBS1.csv,0,1850,TRUE,January
+January 1851 Feeding Obs1.csv,1,1851,FALSE,January
+January 1851 Feeding OBS2.csv,2,1851,FALSE,January
+January 1851 Feeding OBS3.csv,0,1851,FALSE,January
+January 1851 feeding obs4.csv,2,1851,FALSE,January
+"January 1851 nonfeeding 1851, OBS4, PP2.csv",0,1851,TRUE,January
+January 1851 Nonfeeding OBS2.csv,0,1851,TRUE,January
+January 1851 NonFeeding_OBS1.csv,0,1851,TRUE,January
+January 1851 nonfeeing OBS3.csv,1,1851,TRUE,January
+January 1853 Feeding Obs1.csv,2,1853,FALSE,January
+January 1853 feeding OBS2.csv,1,1853,FALSE,January
+January 1853 feeding OBS3.csv,2,1853,FALSE,January
+January 1853 feeding obs4.csv,4,1853,FALSE,January
+January 1853 Nonfeeding OBS2.csv,1,1853,TRUE,January
+January 1853 Nonfeeding OBS4.csv,0,1853,TRUE,January
+January 1853 Nonfeeding_OBS1.csv,0,1853,TRUE,January
+"January 1853, nonfeeding PP4 OBS3.csv",0,1853,TRUE,January
+February 1600 feeding obs1.csv,2,1600,FALSE,February
+February 1600 feeding obs2.csv,3,1600,FALSE,February
+February 1600 feeding obs3.csv,4,1600,FALSE,February
+February 1600 feeding obs4.csv,5,1600,FALSE,February
+February 1600 nonfeeding obs1.csv,3,1600,TRUE,February
+February 1600 nonfeeding OBS2.csv,0,1600,TRUE,February
+February 1600 nonfeeding obs3.csv,1,1600,TRUE,February
+February 1600 nonfeeding obs4.csv,0,1600,TRUE,February
+February 1601 feeding obs1.csv,5,1601,FALSE,February
+February 1601 feeding obs2.csv,2,1601,FALSE,February
+February 1601 feeding obs3.csv,3,1601,FALSE,February
+February 1601 feeding obs4.csv,2,1601,FALSE,February
+February 1601 nonfeeding obs1.csv,2,1601,TRUE,February
+February 1601 nonfeeding OBS2.csv,3,1601,TRUE,February
+February 1601 nonfeeding obs3.csv,3,1601,TRUE,February
+February 1601 nonfeeding obs4.csv,0,1601,TRUE,February
+February 1602 feeding obs 2.csv,2,1602,FALSE,February
+February 1602 feeding obs1.csv,5,1602,FALSE,February
+February 1602 feeding obs3.csv,2,1602,FALSE,February
+February 1602 feeding obs4.csv,6,1602,FALSE,February
+February 1602 nonfeeding obs1.csv,0,1602,TRUE,February
+February 1602 nonfeeding obs2.csv,2,1602,TRUE,February
+February 1602 nonfeeding obs3.csv,0,1602,TRUE,February
+February 1602 nonfeeding obs4.csv,1,1602,TRUE,February
+February 1610 feeding obs1.csv,5,1610,FALSE,February
+February 1610 feeding obs2.csv,4,1610,FALSE,February
+February 1610 feeding obs3.csv,4,1610,FALSE,February
+February 1610 feeding obs4.csv,1,1610,FALSE,February
+February 1610 nonfeeding obs1.csv,2,1610,TRUE,February
+February 1610 nonfeeding obs2.csv,0,1610,TRUE,February
+February 1610 nonfeeding obs3.csv,0,1610,TRUE,February
+February 1610 nonfeeding obs4.csv,2,1610,TRUE,February
+February 1617 feeding obs1.csv,9,1617,FALSE,February
+February 1617 feeding obs2.csv,3,1617,FALSE,February
+February 1617 feeding obs3.csv,2,1617,FALSE,February
+February 1617 feeding obs4.csv,8,1617,FALSE,February
+February 1617 nonfeeding OBS1.csv,0,1617,TRUE,February
+February 1617 nonfeeding obs2.csv,2,1617,TRUE,February
+February 1617 nonfeeding OBS3.csv,0,1617,TRUE,February
+February 1617 nonfeeding obs4.csv,0,1617,TRUE,February
+February 1622 feeding obs1.csv,6,1622,FALSE,February
+February 1622 feeding obs2.csv,6,1622,FALSE,February
+February 1622 feeding obs3.csv,5,1622,FALSE,February
+February 1622 feeding obs4.csv,4,1622,FALSE,February
+February 1622 nonfeeding obs1.csv,0,1622,TRUE,February
+February 1622 nonfeeding obs2.csv,1,1622,TRUE,February
+February 1622 nonfeeding obs3.csv,3,1622,TRUE,February
+February 1622 nonfeeding obs4.csv,4,1622,TRUE,February
+February 1623 feeding obs1.csv,7,1623,FALSE,February
+February 1623 feeding obs2.csv,7,1623,FALSE,February
+February 1623 feeding obs3.csv,3,1623,FALSE,February
+February 1623 feeding obs4.csv,6,1623,FALSE,February
+February 1623 nonfeeding obs1.csv,2,1623,TRUE,February
+February 1623 nonfeeding obs2.csv,0,1623,TRUE,February
+February 1623 nonfeeding obs3.csv,1,1623,TRUE,February
+February 1623 nonfeeding obs4.csv,1,1623,TRUE,February
+February 1703 feeding obs1.csv,2,1703,FALSE,February
+February 1703 feeding obs2.csv,1,1703,FALSE,February
+February 1703 feeding obs3.csv,4,1703,FALSE,February
+February 1703 feeding obs4.csv,4,1703,FALSE,February
+February 1703 nonfeeding OBS 3.csv,2,1703,TRUE,February
+February 1703 nonfeeding OBS1.csv,3,1703,TRUE,February
+February 1703 nonfeeding obs2.csv,2,1703,TRUE,February
+February 1703 nonfeeding obs3.csv,4,1703,TRUE,February
+February 1802 feeding obs1.csv,3,1802,FALSE,February
+February 1802 feeding obs2.csv,4,1802,FALSE,February
+February 1802 feeding obs3.csv,3,1802,FALSE,February
+February 1802 feeding obs4.csv,2,1802,FALSE,February
+February 1802 nonfeeding OBS1.csv,0,1802,TRUE,February
+February 1802 nonfeeding obs2.csv,0,1802,TRUE,February
+February 1802 nonfeeding obs3.csv,1,1802,TRUE,February
+February 1802 nonfeeding obs4.csv,1,1802,TRUE,February
+February 1803 feeding obs1.csv,1,1803,FALSE,February
+February 1803 feeding obs2.csv,0,1803,FALSE,February
+February 1803 feeding obs3.csv,3,1803,FALSE,February
+February 1803 feeding obs4.csv,2,1803,FALSE,February
+February 1803 nonfeeding obs1.csv,2,1803,TRUE,February
+February 1803 nonfeeding obs2.csv,0,1803,TRUE,February
+February 1803 nonfeeding obs3.csv,0,1803,TRUE,February
+February 1803 nonfeeding obs4.csv,0,1803,TRUE,February
+February 1820 feeding obs1.csv,5,1820,FALSE,February
+February 1820 feeding obs2.csv,1,1820,FALSE,February
+February 1820 feeding obs3.csv,2,1820,FALSE,February
+February 1820 feeding obs4.csv,2,1820,FALSE,February
+February 1820 nonfeeding OBS1.csv,1,1820,TRUE,February
+February 1820 nonfeeding obs2.csv,1,1820,TRUE,February
+February 1820 nonfeeding obs3.csv,0,1820,TRUE,February
+February 1820 nonfeeding obs4.csv,2,1820,TRUE,February
+February 1841 feeding obs1.csv,4,1841,FALSE,February
+February 1841 feeding obs2.csv,5,1841,FALSE,February
+February 1841 feeding obs3.csv,3,1841,FALSE,February
+February 1841 feeding obs4.csv,1,1841,FALSE,February
+February 1841 nonfeeding obs1.csv,3,1841,TRUE,February
+February 1841 nonfeeding obs2.csv,0,1841,TRUE,February
+February 1841 nonfeeding obs3.csv,0,1841,TRUE,February
+February 1841 nonfeeding OBS4.csv,1,1841,TRUE,February
+February 1842 feeding obs1.csv,2,1842,FALSE,February
+February 1842 feeding obs2.csv,2,1842,FALSE,February
+February 1842 feeding obs3.csv,3,1842,FALSE,February
+February 1842 feeding obs4.csv,2,1842,FALSE,February
+February 1842 nonfeeding obs2.csv,1,1842,TRUE,February
+February 1842 nonfeeding OBS3.csv,0,1842,TRUE,February
+February 1842 nonfeeding obs4.csv,1,1842,TRUE,February
+"February 1842, nonfeeding OBS1.csv",0,1842,TRUE,February
+February 1850 feeding obs1.csv,4,1850,FALSE,February
+February 1850 feeding obs2.csv,1,1850,FALSE,February
+February 1850 feeding obs3.csv,3,1850,FALSE,February
+February 1850 feeding obs4.csv,3,1850,FALSE,February
+February 1850 nonfeeding OBS 3.csv,0,1850,TRUE,February
+February 1850 nonfeeding OBS1.csv,1,1850,TRUE,February
+February 1850 nonfeeding obs2.csv,0,1850,TRUE,February
+February 1850 nonfeeding obs4.csv,2,1850,TRUE,February
+February 1851 feeding obs1.csv,1,1851,FALSE,February
+February 1851 feeding obs2.csv,0,1851,FALSE,February
+February 1851 feeding obs3.csv,1,1851,FALSE,February
+February 1851 feeding obs4.csv,0,1851,FALSE,February
+February 1851 nonfeeding obs1.csv,0,1851,TRUE,February
+February 1851 nonfeeding obs2.csv,2,1851,TRUE,February
+February 1851 nonfeeding obs3.csv,0,1851,TRUE,February
+February 1851 nonfeeding obs4.csv,2,1851,TRUE,February
+February 1853 feeding obs.csv,1,1853,FALSE,February
+FEbruary 1853 feeding obs2.csv,1,1853,FALSE,February
+February 1853 feeding obs3.csv,1,1853,FALSE,February
+February 1853 feeding obs4.csv,0,1853,FALSE,February
+February 1853 nonfeeding obs1.csv,0,1853,TRUE,February
+February 1853 nonfeeding obs2.csv,0,1853,TRUE,February
+February 1853 nonfeeding obs3.csv,0,1853,TRUE,February
+February 1853 nonfeeding obs4.csv,0,1853,TRUE,February
+March 1600 feeding obs1.csv,4,1600,FALSE,March
+March 1600 feeding obs2.csv,4,1600,FALSE,March
+March 1600 feeding obs3.csv,3,1600,FALSE,March
+March 1600 feeding obs4.csv,8,1600,FALSE,March
+March 1600 nonfeeding obs1.csv,0,1600,TRUE,March
+March 1600 nonfeeding obs2.csv,2,1600,TRUE,March
+March 1600 nonfeeding obs3.csv,1,1600,TRUE,March
+March 1600 nonfeeding obs4.csv,3,1600,TRUE,March
+March 1601 feeding obs1.csv,6,1601,FALSE,March
+March 1601 feeding obs2.csv,2,1601,FALSE,March
+March 1601 feeding obs3.csv,4,1601,FALSE,March
+March 1601 feeding obs4.csv,3,1601,FALSE,March
+March 1601 nonfeeding obs2.csv,0,1601,TRUE,March
+March 1601 nonfeeding obs3.csv,0,1601,TRUE,March
+March 1601 nonfeeding obs4.csv,0,1601,TRUE,March
+March 1601 nonfeeing obs1.csv,2,1601,TRUE,March
+March 1602 feeding obs1.csv,3,1602,FALSE,March
+March 1602 feeding obs2.csv,2,1602,FALSE,March
+March 1602 feeding obs3.csv,5,1602,FALSE,March
+March 1602 feeding obs4.csv,1,1602,FALSE,March
+March 1602 nonfeeding obs1.csv,3,1602,TRUE,March
+March 1602 nonfeeding obs2.csv,0,1602,TRUE,March
+March 1602 nonfeeding obs3.csv,0,1602,TRUE,March
+March 1602 nonfeeding obs4.csv,0,1602,TRUE,March
+March 1610 feeding obs1.csv,3,1610,FALSE,March
+March 1610 feeding obs2.csv,4,1610,FALSE,March
+March 1610 feeding obs3.csv,4,1610,FALSE,March
+March 1610 feeding obs4.csv,5,1610,FALSE,March
+March 1610 nonfeeding obs1.csv,1,1610,TRUE,March
+March 1610 nonfeeding obs2.csv,0,1610,TRUE,March
+March 1610 nonfeeding obs3.csv,0,1610,TRUE,March
+March 1610 nonfeeding obs4.csv,0,1610,TRUE,March
+March 1617 feeding obs1.csv,3,1617,FALSE,March
+March 1617 feeding obs2.csv,1,1617,FALSE,March
+March 1617 feeding obs3.csv,5,1617,FALSE,March
+March 1617 feeding obs4.csv,3,1617,FALSE,March
+March 1617 nonfeeding obs1.csv,1,1617,TRUE,March
+March 1617 nonfeeding obs2.csv,0,1617,TRUE,March
+March 1617 nonfeeding obs3.csv,0,1617,TRUE,March
+March 1617 nonfeeding obs4.csv,3,1617,TRUE,March
+March 1622 feeding obs1.csv,8,1622,FALSE,March
+March 1622 feeding obs2.csv,5,1622,FALSE,March
+March 1622 feeding obs3.csv,10,1622,FALSE,March
+March 1622 feeding obs4.csv,6,1622,FALSE,March
+March 1622 nonfeeding obs1.csv,2,1622,TRUE,March
+March 1622 nonfeeding obs2.csv,0,1622,TRUE,March
+March 1622 nonfeeding obs3.csv,0,1622,TRUE,March
+March 1622 nonfeeding obs4.csv,0,1622,TRUE,March
+March 1623 feeding obs1.csv,3,1623,FALSE,March
+March 1623 feeding obs2.csv,4,1623,FALSE,March
+March 1623 feeding obs3.csv,3,1623,FALSE,March
+March 1623 feeding obs4.csv,4,1623,FALSE,March
+March 1623 nonfeeding obs1.csv,0,1623,TRUE,March
+March 1623 nonfeeding obs2.csv,2,1623,TRUE,March
+March 1623 nonfeeding obs3.csv,1,1623,TRUE,March
+March 1623 nonfeeding obs4.csv,1,1623,TRUE,March
+March 1703 feeding obs1.csv,3,1703,FALSE,March
+March 1703 feeding obs2.csv,2,1703,FALSE,March
+March 1703 feeding obs3.csv,0,1703,FALSE,March
+March 1703 feeding obs4.csv,3,1703,FALSE,March
+March 1703 nonfeeding obs1.csv,1,1703,TRUE,March
+March 1703 nonfeeding obs2.csv,0,1703,TRUE,March
+March 1703 nonfeeding obs3.csv,0,1703,TRUE,March
+March 1703 nonfeeding obs4.csv,0,1703,TRUE,March
+March 1802 feeding obs1.csv,1,1802,FALSE,March
+March 1802 feeding obs2.csv,2,1802,FALSE,March
+March 1802 feeding obs3.csv,1,1802,FALSE,March
+March 1802 feeding obs4.csv,4,1802,FALSE,March
+March 1802 nonfeeding obs1.csv,0,1802,TRUE,March
+March 1802 nonfeeding obs2.csv,3,1802,TRUE,March
+March 1802 nonfeeding obs3.csv,0,1802,TRUE,March
+March 1802 nonfeeding obs4.csv,0,1802,TRUE,March
+March 1803 feeding obs1.csv,4,1803,FALSE,March
+March 1803 feeding obs2.csv,2,1803,FALSE,March
+March 1803 feeding obs3.csv,2,1803,FALSE,March
+March 1803 feeding obs4.csv,4,1803,FALSE,March
+March 1803 nonfeeding obs1.csv,0,1803,TRUE,March
+March 1803 nonfeeding obs2.csv,1,1803,TRUE,March
+March 1803 nonfeeding obs3.csv,0,1803,TRUE,March
+March 1803 nonfeeding obs4.csv,0,1803,TRUE,March
+March 1820 feeding obs1.csv,3,1820,FALSE,March
+March 1820 feeding obs2.csv,3,1820,FALSE,March
+March 1820 feeding obs3.csv,1,1820,FALSE,March
+March 1820 feeding obs4.csv,3,1820,FALSE,March
+March 1820 nonfeeding obs1.csv,2,1820,TRUE,March
+March 1820 nonfeeding obs2.csv,3,1820,TRUE,March
+March 1820 nonfeeding obs3.csv,1,1820,TRUE,March
+March 1820 nonfeeding obs4.csv,0,1820,TRUE,March
+March 1841 feeding obs1.csv,3,1841,FALSE,March
+March 1841 feeding obs2.csv,5,1841,FALSE,March
+March 1841 feeding obs3.csv,2,1841,FALSE,March
+March 1841 feeding obs4.csv,2,1841,FALSE,March
+March 1841 nonfeeding obs1.csv,0,1841,TRUE,March
+March 1841 nonfeeding obs2.csv,0,1841,TRUE,March
+March 1841 nonfeeding obs3.csv,1,1841,TRUE,March
+March 1841 nonfeeding obs4.csv,2,1841,TRUE,March
+March 1842 feeding obs1.csv,2,1842,FALSE,March
+March 1842 feeding obs2.csv,1,1842,FALSE,March
+March 1842 feeding obs3.csv,1,1842,FALSE,March
+March 1842 feeding obs4.csv,2,1842,FALSE,March
+March 1842 nonfeeding obs1.csv,0,1842,TRUE,March
+March 1842 nonfeeding obs2.csv,0,1842,TRUE,March
+March 1842 nonfeeding obs3.csv,1,1842,TRUE,March
+March 1842 nonfeeding obs4.csv,0,1842,TRUE,March
+March 1850 feeding obs1.csv,3,1850,FALSE,March
+March 1850 feeding obs2.csv,3,1850,FALSE,March
+March 1850 feeding obs3.csv,2,1850,FALSE,March
+March 1850 feeding obs4.csv,3,1850,FALSE,March
+March 1850 nonfeeding obs1.csv,0,1850,TRUE,March
+March 1850 nonfeeding obs2.csv,0,1850,TRUE,March
+March 1850 nonfeeding obs3.csv,0,1850,TRUE,March
+March 1850 nonfeeding obs4.csv,1,1850,TRUE,March
+March 1851 feeding obs1.csv,0,1851,FALSE,March
+March 1851 feeding obs2.csv,1,1851,FALSE,March
+March 1851 feeding obs3.csv,0,1851,FALSE,March
+March 1851 feeding obs4.csv,1,1851,FALSE,March
+March 1851 nonfeeding obs1.csv,2,1851,TRUE,March
+March 1851 nonfeeding obs2.csv,2,1851,TRUE,March
+March 1851 nonfeeding obs3.csv,0,1851,TRUE,March
+March 1851 nonfeeding obs4.csv,0,1851,TRUE,March
+March 1853 feeding obs1.csv,1,1853,FALSE,March
+March 1853 feeding obs2.csv,0,1853,FALSE,March
+March 1853 feeding obs3.csv,0,1853,FALSE,March
+March 1853 feeding obs4.csv,0,1853,FALSE,March
+March 1853 nonfeeding obs1.csv,0,1853,TRUE,March
+March 1853 nonfeeding obs2.csv,0,1853,TRUE,March
+March 1853 nonfeeding obs3.csv,0,1853,TRUE,March
+March 1853 nonfeeding obs4.csv,2,1853,TRUE,March
+April 1600 feeding obs1.csv,4,1600,FALSE,April
+April 1600 feeding obs2.csv,3,1600,FALSE,April
+April 1600 feeding obs3.csv,5,1600,FALSE,April
+April 1600 feeding obs4.csv,5,1600,FALSE,April
+April 1600 nonfeeding obs1.csv,0,1600,TRUE,April
+April 1600 nonfeeding obs2.csv,0,1600,TRUE,April
+April 1600 nonfeeding obs3.csv,0,1600,TRUE,April
+April 1600 nonfeeding obs4.csv,0,1600,TRUE,April
+April 1601 feeding obs1.csv,2,1601,FALSE,April
+April 1601 feeding obs2.csv,5,1601,FALSE,April
+April 1601 feeding obs3.csv,6,1601,FALSE,April
+April 1601 feeding obs4.csv,3,1601,FALSE,April
+April 1601 nonfeeding obs1.csv,0,1601,TRUE,April
+April 1601 nonfeeding obs2.csv,0,1601,TRUE,April
+April 1601 nonfeeding obs3.csv,0,1601,TRUE,April
+April 1601 nonfeeding obs4.csv,0,1601,TRUE,April
+April 1602 feeding obs1.csv,2,1602,FALSE,April
+April 1602 feeding obs2.csv,5,1602,FALSE,April
+April 1602 feeding obs3.csv,3,1602,FALSE,April
+April 1602 feeding obs4.csv,7,1602,FALSE,April
+April 1602 nonfeeding obs1.csv,0,1602,TRUE,April
+April 1602 nonfeeding obs2.csv,1,1602,TRUE,April
+April 1602 nonfeeding obs3.csv,0,1602,TRUE,April
+April 1602 nonfeeding obs4.csv,0,1602,TRUE,April
+April 1610 feeding obs1.csv,6,1610,FALSE,April
+April 1610 feeding obs2.csv,3,1610,FALSE,April
+April 1610 feeding obs3.csv,5,1610,FALSE,April
+April 1610 feeding obs4.csv,3,1610,FALSE,April
+April 1610 nonfeeding obs1.csv,0,1610,TRUE,April
+April 1610 nonfeeding obs2.csv,0,1610,TRUE,April
+April 1610 nonfeeding obs3.csv,0,1610,TRUE,April
+April 1610 nonfeeding obs4.csv,0,1610,TRUE,April
+April 1617 feeding obs1.csv,3,1617,FALSE,April
+April 1617 feeding obs2.csv,3,1617,FALSE,April
+April 1617 feeding obs3.csv,5,1617,FALSE,April
+April 1617 feeding obs4.csv,5,1617,FALSE,April
+April 1617 nonfeeding obs1.csv,1,1617,TRUE,April
+April 1617 nonfeeding obs2.csv,0,1617,TRUE,April
+April 1617 nonfeeding obs3.csv,0,1617,TRUE,April
+April 1617 nonfeeding obs4.csv,0,1617,TRUE,April
+April 1622 feeding obs1.csv,6,1622,FALSE,April
+April 1622 feeding obs2.csv,2,1622,FALSE,April
+April 1622 feeding obs3.csv,5,1622,FALSE,April
+April 1622 feeding obs4.csv,5,1622,FALSE,April
+April 1622 nonfeeding obs1.csv,0,1622,TRUE,April
+April 1622 nonfeeding obs2.csv,0,1622,TRUE,April
+April 1622 nonfeeding obs3.csv,2,1622,TRUE,April
+April 1622 nonfeeding obs4.csv,2,1622,TRUE,April
+April 1623 feeding obs1.csv,2,1623,FALSE,April
+April 1623 feeding obs2.csv,3,1623,FALSE,April
+April 1623 feeding obs3.csv,3,1623,FALSE,April
+April 1623 feeding obs4.csv,7,1623,FALSE,April
+April 1623 nonfeeding obs1.csv,2,1623,TRUE,April
+April 1623 nonfeeding obs2.csv,1,1623,TRUE,April
+April 1623 nonfeeding obs3.csv,0,1623,TRUE,April
+April 1623 nonfeeding obs4.csv,1,1623,TRUE,April
+April 1703 feeding obs1.csv,4,1703,FALSE,April
+April 1703 feeding obs2.csv,3,1703,FALSE,April
+April 1703 feeding obs3.csv,3,1703,FALSE,April
+April 1703 feeding obs4.csv,3,1703,FALSE,April
+April 1703 nonfeeding obs1.csv,2,1703,TRUE,April
+April 1703 nonfeeding obs2.csv,0,1703,TRUE,April
+April 1703 nonfeeding obs3.csv,0,1703,TRUE,April
+April 1703 nonfeeding obs4.csv,0,1703,TRUE,April
+April 1802 feeding obs1.csv,3,1802,FALSE,April
+April 1802 feeding obs2.csv,3,1802,FALSE,April
+April 1802 feeding obs3.csv,4,1802,FALSE,April
+April 1802 feeding obs4.csv,3,1802,FALSE,April
+April 1802 nonfeeding obs1.csv,0,1802,TRUE,April
+April 1802 nonfeeding obs2.csv,0,1802,TRUE,April
+April 1802 nonfeeding obs3.csv,0,1802,TRUE,April
+April 1802 nonfeeding obs4.csv,0,1802,TRUE,April
+April 1803 feeding obs1.csv,1,1803,FALSE,April
+April 1803 feeding obs2.csv,2,1803,FALSE,April
+April 1803 feeding obs3.csv,4,1803,FALSE,April
+April 1803 feeding obs4.csv,2,1803,FALSE,April
+April 1803 nonfeeding obs1.csv,1,1803,TRUE,April
+April 1803 nonfeeding obs2.csv,1,1803,TRUE,April
+April 1803 nonfeeding obs3.csv,0,1803,TRUE,April
+April 1803 nonfeeding obs4.csv,3,1803,TRUE,April
+April 1820 feeding obs1.csv,4,1820,FALSE,April
+April 1820 feeding obs2.csv,4,1820,FALSE,April
+April 1820 feeding obs3.csv,4,1820,FALSE,April
+April 1820 feeding obs4.csv,4,1820,FALSE,April
+April 1820 nonfeeding obs1.csv,0,1820,TRUE,April
+April 1820 nonfeeding obs2.csv,0,1820,TRUE,April
+April 1820 nonfeeding obs3.csv,3,1820,TRUE,April
+April 1820 nonfeeding obs4.csv,0,1820,TRUE,April
+April 1841 feeding obs1.csv,3,1841,FALSE,April
+April 1841 feeding obs2.csv,6,1841,FALSE,April
+April 1841 feeding obs3.csv,5,1841,FALSE,April
+April 1841 feeding obs4.csv,7,1841,FALSE,April
+April 1841 nonfeeding obs1.csv,0,1841,TRUE,April
+April 1841 nonfeeding obs2.csv,0,1841,TRUE,April
+April 1841 nonfeeding obs3.csv,0,1841,TRUE,April
+April 1841 nonfeeding obs4.csv,0,1841,TRUE,April
+April 1842 feeding obs1.csv,2,1842,FALSE,April
+April 1842 feeding obs2.csv,1,1842,FALSE,April
+April 1842 feeding obs3.csv,2,1842,FALSE,April
+April 1842 feeding obs4.csv,0,1842,FALSE,April
+April 1842 nonfeeding obs1.csv,3,1842,TRUE,April
+April 1842 nonfeeding obs2.csv,0,1842,TRUE,April
+April 1842 nonfeeding obs3.csv,0,1842,TRUE,April
+April 1842 nonfeeding obs4.csv,0,1842,TRUE,April
+April 1850 feeding obs1.csv,4,1850,FALSE,April
+April 1850 feeding obs2.csv,2,1850,FALSE,April
+April 1850 feeding obs3.csv,3,1850,FALSE,April
+April 1850 feeding obs4.csv,2,1850,FALSE,April
+April 1850 nonfeeding obs1.csv,5,1850,TRUE,April
+April 1850 nonfeeding obs2.csv,1,1850,TRUE,April
+April 1850 nonfeeding obs3.csv,5,1850,TRUE,April
+April 1850 nonfeeding obs4.csv,1,1850,TRUE,April
+April 1851 feeding obs1.csv,2,1851,FALSE,April
+April 1851 feeding obs2.csv,0,1851,FALSE,April
+April 1851 feeding obs3.csv,2,1851,FALSE,April
+April 1851 feeding obs4.csv,1,1851,FALSE,April
+April 1851 nonfeeding obs1.csv,1,1851,TRUE,April
+April 1851 nonfeeding obs2.csv,0,1851,TRUE,April
+April 1851 nonfeeding obs3.csv,0,1851,TRUE,April
+April 1851 nonfeeding obs4.csv,0,1851,TRUE,April
+April 1853 feeding obs1.csv,1,1853,FALSE,April
+April 1853 feeding obs2.csv,1,1853,FALSE,April
+April 1853 feeding obs3.csv,1,1853,FALSE,April
+April 1853 feeding obs4.csv,1,1853,FALSE,April
+April 1853 nonfeeding obs1.csv,2,1853,TRUE,April
+April 1853 nonfeeding obs2.csv,0,1853,TRUE,April
+April 1853 nonfeeding obs3.csv,0,1853,TRUE,April
+April 1853 nonfeeding obs4.csv,0,1853,TRUE,April
+May 1600 feeding obs1.csv,0,1600,FALSE,May
+May 1600 feeding obs2.csv,3,1600,FALSE,May
+May 1600 feeding obs3.csv,3,1600,FALSE,May
+May 1600 feeding obs4.csv,2,1600,FALSE,May
+May 1600 nonfeeding obs1.csv,0,1600,TRUE,May
+May 1600 nonfeeding obs2.csv,0,1600,TRUE,May
+May 1600 nonfeeding obs3.csv,1,1600,TRUE,May
+May 1600 nonfeeding obs4.csv,1,1600,TRUE,May
+May 1601 feeding obs1.csv,5,1601,FALSE,May
+May 1601 feeding obs2.csv,3,1601,FALSE,May
+May 1601 feeding obs3.csv,1,1601,FALSE,May
+May 1601 feeding obs4.csv,1,1601,FALSE,May
+May 1601 nonfeeding obs1.csv,1,1601,TRUE,May
+May 1601 nonfeeding obs2.csv,0,1601,TRUE,May
+May 1601 nonfeeding obs3.csv,0,1601,TRUE,May
+May 1601 nonfeeding obs4.csv,2,1601,TRUE,May
+May 1602 feeding obs1.csv,0,1602,FALSE,May
+May 1602 feeding obs2.csv,2,1602,FALSE,May
+May 1602 feeding obs3.csv,3,1602,FALSE,May
+May 1602 feeding obs4.csv,4,1602,FALSE,May
+May 1602 nonfeeding obs1.csv,0,1602,TRUE,May
+May 1602 nonfeeding obs2.csv,1,1602,TRUE,May
+May 1602 nonfeeding obs3.csv,0,1602,TRUE,May
+May 1602 nonfeeding obs4.csv,0,1602,TRUE,May
+May 1610 feeding obs1.csv,2,1610,FALSE,May
+May 1610 feeding obs2.csv,1,1610,FALSE,May
+May 1610 feeding obs3.csv,1,1610,FALSE,May
+May 1610 feeding obs4.csv,1,1610,FALSE,May
+May 1610 nonfeeding obs1.csv,0,1610,TRUE,May
+May 1610 nonfeeding obs2.csv,0,1610,TRUE,May
+May 1610 nonfeeding obs3.csv,1,1610,TRUE,May
+May 1610 nonfeeding obs4.csv,0,1610,TRUE,May
+May 1617 feeding obs1.csv,3,1617,FALSE,May
+May 1617 feeding obs2.csv,2,1617,FALSE,May
+May 1617 feeding obs3.csv,3,1617,FALSE,May
+May 1617 feeding obs4.csv,3,1617,FALSE,May
+May 1617 nonfeeding obs1.csv,0,1617,TRUE,May
+May 1617 nonfeeding obs2.csv,1,1617,TRUE,May
+May 1617 nonfeeding obs3.csv,0,1617,TRUE,May
+May 1617 nonfeeding obs4.csv,0,1617,TRUE,May
+May 1622 feeding obs1.csv,5,1622,FALSE,May
+May 1622 feeding obs2.csv,4,1622,FALSE,May
+May 1622 feeding obs3.csv,4,1622,FALSE,May
+May 1622 feeding obs4.csv,1,1622,FALSE,May
+May 1622 nonfeeding obs1.csv,0,1622,TRUE,May
+May 1622 nonfeeding obs2.csv,2,1622,TRUE,May
+May 1622 nonfeeding obs3.csv,3,1622,TRUE,May
+May 1622 nonfeeding obs4.csv,0,1622,TRUE,May
+May 1623 feeding obs1.csv,3,1623,FALSE,May
+May 1623 feeding obs2.csv,2,1623,FALSE,May
+May 1623 feeding obs3.csv,5,1623,FALSE,May
+May 1623 feeding obs4.csv,4,1623,FALSE,May
+May 1623 nonfeeding obs1.csv,1,1623,TRUE,May
+May 1623 nonfeeding obs2.csv,0,1623,TRUE,May
+May 1623 nonfeeding obs3.csv,1,1623,TRUE,May
+May 1623 nonfeeding obs4.csv,0,1623,TRUE,May
+May 1703 feeding obs1.csv,3,1703,FALSE,May
+May 1703 feeding obs2.csv,1,1703,FALSE,May
+May 1703 feeding obs3.csv,1,1703,FALSE,May
+May 1703 feeding obs4.csv,2,1703,FALSE,May
+May 1703 nonfeeding obs1.csv,0,1703,TRUE,May
+May 1703 nonfeeding obs2.csv,3,1703,TRUE,May
+May 1703 nonfeeding obs3.csv,1,1703,TRUE,May
+May 1703 nonfeeding obs4.csv,0,1703,TRUE,May
+May 1802 feeding obs1.csv,1,1802,FALSE,May
+May 1802 feeding obs2.csv,2,1802,FALSE,May
+May 1802 feeding obs3.csv,2,1802,FALSE,May
+May 1802 feeding obs4.csv,3,1802,FALSE,May
+May 1802 nonfeeding obs1.csv,0,1802,TRUE,May
+May 1802 nonfeeding obs2.csv,0,1802,TRUE,May
+May 1802 nonfeeding obs3.csv,0,1802,TRUE,May
+May 1802 nonfeeding obs4.csv,0,1802,TRUE,May
+May 1803 feeding obs1.csv,4,1803,FALSE,May
+May 1803 feeding obs2.csv,3,1803,FALSE,May
+May 1803 feeding obs3.csv,2,1803,FALSE,May
+May 1803 feeding obs4.csv,2,1803,FALSE,May
+May 1803 nonfeeding obs1.csv,1,1803,TRUE,May
+May 1803 nonfeeding obs2.csv,0,1803,TRUE,May
+May 1803 nonfeeding obs3.csv,0,1803,TRUE,May
+May 1803 nonfeeding obs4.csv,2,1803,TRUE,May
+May 1820 feeding obs1.csv,0,1820,FALSE,May
+May 1820 feeding obs2.csv,0,1820,FALSE,May
+May 1820 feeding obs3.csv,2,1820,FALSE,May
+May 1820 feeding obs4.csv,2,1820,FALSE,May
+May 1820 nonfeeding obs1.csv,0,1820,TRUE,May
+May 1820 nonfeeding obs2.csv,0,1820,TRUE,May
+May 1820 nonfeeding obs3.csv,0,1820,TRUE,May
+May 1820 nonfeeding obs4.csv,0,1820,TRUE,May
+May 1841 feeding obs1.csv,2,1841,FALSE,May
+May 1841 feeding obs2.csv,0,1841,FALSE,May
+May 1841 feeding obs3.csv,0,1841,FALSE,May
+May 1841 feeding obs4.csv,0,1841,FALSE,May
+May 1841 nonfeeding obs1.csv,0,1841,TRUE,May
+May 1841 nonfeeding obs2.csv,0,1841,TRUE,May
+May 1841 nonfeeding obs3.csv,0,1841,TRUE,May
+May 1841 nonfeeding obs4.csv,0,1841,TRUE,May
+May 1842 feeding obs1.csv,0,1842,FALSE,May
+May 1842 feeding obs2.csv,1,1842,FALSE,May
+May 1842 feeding obs3.csv,0,1842,FALSE,May
+May 1842 feeding obs4.csv,1,1842,FALSE,May
+May 1842 nonfeeding obs1.csv,0,1842,TRUE,May
+May 1842 nonfeeding obs2.csv,0,1842,TRUE,May
+May 1842 nonfeeding obs3.csv,0,1842,TRUE,May
+May 1842 nonfeeding obs4.csv,0,1842,TRUE,May
+May 1850 feeding obs1.csv,1,1850,FALSE,May
+May 1850 feeding obs2.csv,0,1850,FALSE,May
+May 1850 feeding obs3.csv,1,1850,FALSE,May
+May 1850 feeding obs4.csv,0,1850,FALSE,May
+May 1850 nonfeeding obs1.csv,1,1850,TRUE,May
+May 1850 nonfeeding obs2.csv,0,1850,TRUE,May
+May 1850 nonfeeding obs3.csv,0,1850,TRUE,May
+May 1850 nonfeeding obs4.csv,0,1850,TRUE,May
+May 1851 feeding obs1.csv,0,1851,FALSE,May
+May 1851 feeding obs2.csv,0,1851,FALSE,May
+May 1851 feeding obs3.csv,1,1851,FALSE,May
+May 1851 feeding obs4.csv,1,1851,FALSE,May
+May 1851 nonfeeding obs1.csv,1,1851,TRUE,May
+May 1851 nonfeeding obs2.csv,0,1851,TRUE,May
+May 1851 nonfeeding obs3.csv,1,1851,TRUE,May
+May 1851 nonfeeding obs4.csv,0,1851,TRUE,May
+May 1853 feeding obs1.csv,0,1853,FALSE,May
+May 1853 feeding obs2.csv,0,1853,FALSE,May
+May 1853 feeding obs3.csv,0,1853,FALSE,May
+May 1853 feeding obs4.csv,1,1853,FALSE,May
+May 1853 nonfeeding obs1.csv,0,1853,TRUE,May
+May 1853 nonfeeding obs2.csv,0,1853,TRUE,May
+May 1853 nonfeeding obs3.csv,1,1853,TRUE,May
+May 1853 nonfeeding obs4.csv,0,1853,TRUE,May
+June 1600 feeding obs1.csv,1,1600,FALSE,June
+June 1600 feeding obs2.csv,4,1600,FALSE,June
+June 1600 feeding obs3.csv,2,1600,FALSE,June
+June 1600 feeding obs4.csv,2,1600,FALSE,June
+June 1600 nonfeeding obs1.csv,1,1600,TRUE,June
+June 1600 nonfeeding obs2.csv,3,1600,TRUE,June
+June 1600 nonfeeding obs3.csv,0,1600,TRUE,June
+June 1600 nonfeeding obs4.csv,0,1600,TRUE,June
+June 1601 feeding obs1.csv,0,1601,FALSE,June
+June 1601 feeding obs2.csv,0,1601,FALSE,June
+June 1601 feeding obs3.csv,0,1601,FALSE,June
+June 1601 feeding obs4.csv,10,1601,FALSE,June
+June 1601 nonfeeding obs1.csv,0,1601,TRUE,June
+June 1601 nonfeeding obs2.csv,0,1601,TRUE,June
+June 1601 nonfeeding obs3.csv,0,1601,TRUE,June
+June 1601 nonfeeding obs4.csv,0,1601,TRUE,June
+June 1602 feeding obs1.csv,2,1602,FALSE,June
+June 1602 feeding obs2.csv,2,1602,FALSE,June
+June 1602 feeding obs3.csv,3,1602,FALSE,June
+June 1602 feeding obs4.csv,7,1602,FALSE,June
+June 1602 nonfeeding obs1.csv,0,1602,TRUE,June
+June 1602 nonfeeding obs2.csv,0,1602,TRUE,June
+June 1602 nonfeeding obs3.csv,1,1602,TRUE,June
+June 1602 nonfeeding obs4.csv,0,1602,TRUE,June
+June 1610 feeding obs1.csv,3,1610,FALSE,June
+June 1610 feeding obs2.csv,2,1610,FALSE,June
+June 1610 feeding obs3.csv,2,1610,FALSE,June
+June 1610 feeding obs4.csv,2,1610,FALSE,June
+June 1610 nonfeeding obs1.csv,0,1610,TRUE,June
+June 1610 nonfeeding obs2.csv,0,1610,TRUE,June
+June 1610 nonfeeding obs3.csv,0,1610,TRUE,June
+June 1610 nonfeeding obs4.csv,0,1610,TRUE,June
+June 1617 feeding obs1.csv,1,1617,FALSE,June
+June 1617 feeding obs2.csv,2,1617,FALSE,June
+June 1617 feeding obs3.csv,3,1617,FALSE,June
+June 1617 feeding obs4.csv,3,1617,FALSE,June
+June 1617 nonfeeding obs1.csv,0,1617,TRUE,June
+June 1617 nonfeeding obs2.csv,2,1617,TRUE,June
+June 1617 nonfeeding obs3.csv,1,1617,TRUE,June
+June 1617 nonfeeding obs4.csv,0,1617,TRUE,June
+June 1622 feeding obs1.csv,3,1622,FALSE,June
+June 1622 feeding obs2.csv,2,1622,FALSE,June
+June 1622 feeding obs3.csv,2,1622,FALSE,June
+June 1622 feeding obs4.csv,9,1622,FALSE,June
+June 1622 nonfeeding obs1.csv,1,1622,TRUE,June
+June 1622 nonfeeding obs2.csv,0,1622,TRUE,June
+June 1622 nonfeeding obs3.csv,0,1622,TRUE,June
+June 1622 nonfeeding obs4.csv,0,1622,TRUE,June
+June 1623 feeding obs1.csv,4,1623,FALSE,June
+June 1623 feeding obs2.csv,5,1623,FALSE,June
+June 1623 feeding obs3.csv,2,1623,FALSE,June
+June 1623 feeding obs4.csv,3,1623,FALSE,June
+June 1623 nonfeeding obs1.csv,2,1623,TRUE,June
+June 1623 nonfeeding obs2.csv,0,1623,TRUE,June
+June 1623 nonfeeding obs3.csv,0,1623,TRUE,June
+June 1623 nonfeeding obs4.csv,0,1623,TRUE,June
+June 1703 feeding obs1.csv,1,1703,FALSE,June
+June 1703 feeding obs2.csv,3,1703,FALSE,June
+June 1703 feeding obs3.csv,0,1703,FALSE,June
+June 1703 feeding obs4.csv,1,1703,FALSE,June
+June 1703 nonfeeding obs1.csv,1,1703,TRUE,June
+June 1703 nonfeeding obs2.csv,2,1703,TRUE,June
+June 1703 nonfeeding obs3.csv,0,1703,TRUE,June
+June 1703 nonfeeding obs4.csv,0,1703,TRUE,June
+June 1802 feeding obs1.csv,1,1802,FALSE,June
+June 1802 feeding obs2.csv,1,1802,FALSE,June
+June 1802 feeding obs3.csv,2,1802,FALSE,June
+June 1802 feeding obs4.csv,2,1802,FALSE,June
+June 1802 nonfeeding obs1.csv,1,1802,TRUE,June
+June 1802 nonfeeding obs2.csv,0,1802,TRUE,June
+June 1802 nonfeeding obs3.csv,0,1802,TRUE,June
+June 1802 nonfeeding obs4.csv,2,1802,TRUE,June
+June 1803 feeding obs1.csv,0,1803,FALSE,June
+June 1803 feeding obs2.csv,1,1803,FALSE,June
+June 1803 feeding obs3.csv,0,1803,FALSE,June
+June 1803 feeding obs4.csv,1,1803,FALSE,June
+June 1803 nonfeeding obs1.csv,1,1803,TRUE,June
+June 1803 nonfeeding obs2.csv,0,1803,TRUE,June
+June 1803 nonfeeding obs3.csv,0,1803,TRUE,June
+June 1803 nonfeeding obs4.csv,0,1803,TRUE,June
+June 1820 feeding obs1.csv,1,1820,FALSE,June
+June 1820 feeding obs2.csv,0,1820,FALSE,June
+June 1820 feeding obs3.csv,1,1820,FALSE,June
+June 1820 feeding obs4.csv,2,1820,FALSE,June
+June 1820 nonfeeding obs1.csv,0,1820,TRUE,June
+June 1820 nonfeeding obs2.csv,0,1820,TRUE,June
+June 1820 nonfeeding obs3.csv,0,1820,TRUE,June
+June 1820 nonfeeding obs4.csv,2,1820,TRUE,June
+June 1841 feeding obs1.csv,0,1841,FALSE,June
+June 1841 feeding obs2.csv,0,1841,FALSE,June
+June 1841 feeding obs3.csv,2,1841,FALSE,June
+June 1841 feeding obs4.csv,3,1841,FALSE,June
+June 1841 nonfeeding obs1.csv,0,1841,TRUE,June
+June 1841 nonfeeding obs2.csv,1,1841,TRUE,June
+June 1841 nonfeeding obs3.csv,3,1841,TRUE,June
+June 1841 nonfeeding obs4.csv,0,1841,TRUE,June
+June 1842 feeding obs1.csv,0,1842,FALSE,June
+June 1842 feeding obs2.csv,0,1842,FALSE,June
+June 1842 feeding obs3.csv,0,1842,FALSE,June
+June 1842 feeding obs4.csv,2,1842,FALSE,June
+June 1842 nonfeeding obs1.csv,0,1842,TRUE,June
+June 1842 nonfeeding obs2.csv,0,1842,TRUE,June
+June 1842 nonfeeding obs3.csv,0,1842,TRUE,June
+June 1842 nonfeeding obs4.csv,0,1842,TRUE,June
+June 1850 feeding obs1.csv,2,1850,FALSE,June
+June 1850 feeding obs2.csv,2,1850,FALSE,June
+June 1850 feeding obs3.csv,1,1850,FALSE,June
+June 1850 feeding obs4.csv,3,1850,FALSE,June
+June 1850 nonfeeding obs1.csv,1,1850,TRUE,June
+June 1850 nonfeeding obs2.csv,0,1850,TRUE,June
+June 1850 nonfeeding obs3.csv,0,1850,TRUE,June
+June 1850 nonfeeding obs4.csv,3,1850,TRUE,June
+June 1851 feeding obs1.csv,0,1851,FALSE,June
+June 1851 feeding obs2.csv,0,1851,FALSE,June
+June 1851 feeding obs3.csv,0,1851,FALSE,June
+June 1851 feeding obs4.csv,0,1851,FALSE,June
+June 1851 nonfeeding obs1.csv,0,1851,TRUE,June
+June 1851 nonfeeding obs2.csv,0,1851,TRUE,June
+June 1851 nonfeeding obs3.csv,0,1851,TRUE,June
+June 1851 nonfeeding obs4.csv,0,1851,TRUE,June
+June 1853 feeding obs1.csv,0,1853,FALSE,June
+June 1853 feeding obs2.csv,0,1853,FALSE,June
+June 1853 feeding obs3.csv,1,1853,FALSE,June
+June 1853 feeding obs4.csv,2,1853,FALSE,June
+June 1853 nonfeeding obs1.csv,0,1853,TRUE,June
+June 1853 nonfeeding obs2.csv,1,1853,TRUE,June
+June 1853 nonfeeding obs3.csv,1,1853,TRUE,June
+June 1853 nonfeeding obs4.csv,0,1853,TRUE,June
+July 1600 feeding obs 1.csv,3,1600,FALSE,July
+July 1600 feeding obs 2.csv,1,1600,FALSE,July
+July 1600 feeding obs 3.csv,2,1600,FALSE,July
+July 1600 feeding obs 4.csv,6,1600,FALSE,July
+July 1600 nonfeeding obs1.csv,2,1600,TRUE,July
+July 1600 nonfeeding obs2.csv,0,1600,TRUE,July
+July 1600 nonfeeding obs3.csv,1,1600,TRUE,July
+July 1600 nonfeeding obs4.csv,0,1600,TRUE,July
+July 1601 feeding obs 1.csv,2,1601,FALSE,July
+July 1601 feeding obs 2.csv,2,1601,FALSE,July
+July 1601 feeding obs 3.csv,2,1601,FALSE,July
+July 1601 feeding obs 4.csv,0,1601,FALSE,July
+July 1601 nonfeeding obs1.csv,0,1601,TRUE,July
+July 1601 nonfeeding obs2.csv,0,1601,TRUE,July
+July 1601 nonfeeding obs4.csv,0,1601,TRUE,July
+July 1601 nonfeeding ons4.csv,0,1601,TRUE,July
+July 1602 feeding obs 2.csv,2,1602,FALSE,July
+July 1602 feeding obs 3.csv,7,1602,FALSE,July
+July 1602 feeding obs 4.csv,5,1602,FALSE,July
+July 1602 feeding obs1.csv,4,1602,FALSE,July
+July 1602 nonfeeding obs1.csv,0,1602,TRUE,July
+July 1602 nonfeeding obs2.csv,2,1602,TRUE,July
+July 1602 nonfeeding obs3.csv,0,1602,TRUE,July
+July 1602 nonfeeding obs4.csv,0,1602,TRUE,July
+July 1610 feeding obs 2.csv,3,1610,FALSE,July
+July 1610 feeding obs 3.csv,4,1610,FALSE,July
+July 1610 feeding obs 4.csv,2,1610,FALSE,July
+July 1610 feeding obs1.csv,2,1610,FALSE,July
+July 1610 nonfeeding obs1.csv,0,1610,TRUE,July
+July 1610 nonfeeding obs2.csv,0,1610,TRUE,July
+July 1610 nonfeeding obs3.csv,0,1610,TRUE,July
+July 1610 nonfeeding obs4.csv,0,1610,TRUE,July
+July 1617 feeding obs 1.csv,2,1617,FALSE,July
+July 1617 feeding obs 2.csv,1,1617,FALSE,July
+July 1617 feeding obs 3.csv,3,1617,FALSE,July
+July 1617 feeding obs 4.csv,2,1617,FALSE,July
+July 1617 nonfeeding obs1.csv,0,1617,TRUE,July
+July 1617 nonfeeding obs2.csv,0,1617,TRUE,July
+July 1617 nonfeeding obs3.csv,0,1617,TRUE,July
+July 1617 nonfeeding obs4.csv,0,1617,TRUE,July
+July 1622 feeding obs 1.csv,6,1622,FALSE,July
+July 1622 feeding obs 2.csv,3,1622,FALSE,July
+July 1622 feeding obs 3.csv,5,1622,FALSE,July
+July 1622 feeding obs 4.csv,4,1622,FALSE,July
+July 1622 nonfeeding obs1.csv,1,1622,TRUE,July
+July 1622 nonfeeding obs2.csv,1,1622,TRUE,July
+July 1622 nonfeeding obs3.csv,0,1622,TRUE,July
+July 1622 nonfeeding obs4.csv,0,1622,TRUE,July
+July 1623 feeding obs 1.csv,5,1623,FALSE,July
+July 1623 feeding obs 2.csv,4,1623,FALSE,July
+July 1623 feeding obs 3.csv,3,1623,FALSE,July
+July 1623 feeding obs 4.csv,6,1623,FALSE,July
+July 1623 nonfeeding obs1.csv,1,1623,TRUE,July
+July 1623 nonfeeding obs2.csv,0,1623,TRUE,July
+July 1623 nonfeeding obs3.csv,1,1623,TRUE,July
+July 1623 nonfeeding obs4.csv,1,1623,TRUE,July
+July 1703 feeding obs 2.csv,1,1703,FALSE,July
+July 1703 feeding obs 3.csv,2,1703,FALSE,July
+July 1703 feeding obs 4.csv,0,1703,FALSE,July
+July 1703 feeding obs1.csv,0,1703,FALSE,July
+July 1703 nonfeeding obs1.csv,0,1703,TRUE,July
+July 1703 nonfeeding obs2.csv,0,1703,TRUE,July
+July 1703 nonfeeding obs3.csv,0,1703,TRUE,July
+July 1703 nonfeeding obs4.csv,0,1703,TRUE,July
+July 1802 feeding obs 2.csv,2,1802,FALSE,July
+July 1802 feeding obs 3.csv,3,1802,FALSE,July
+July 1802 feeding obs 4.csv,3,1802,FALSE,July
+July 1802 feeding obs1.csv,3,1802,FALSE,July
+July 1802 nonfeeding obs1.csv,0,1802,TRUE,July
+July 1802 nonfeeding obs2.csv,0,1802,TRUE,July
+July 1802 nonfeeding obs3.csv,0,1802,TRUE,July
+July 1802 nonfeeding obs4.csv,0,1802,TRUE,July
+July 1803 feeding obs 1.csv,2,1803,FALSE,July
+July 1803 feeding obs 2.csv,0,1803,FALSE,July
+July 1803 feeding obs 3.csv,1,1803,FALSE,July
+July 1803 feeding obs 4.csv,0,1803,FALSE,July
+July 1803 nonfeeding obs1.csv,2,1803,TRUE,July
+July 1803 nonfeeding obs2.csv,0,1803,TRUE,July
+July 1803 nonfeeding obs3.csv,1,1803,TRUE,July
+July 1803 nonfeeding obs4.csv,0,1803,TRUE,July
+July 1820 feeding obs 1.csv,4,1820,FALSE,July
+July 1820 feeding obs 2.csv,3,1820,FALSE,July
+July 1820 feeding obs 3.csv,5,1820,FALSE,July
+July 1820 feeding obs 4.csv,3,1820,FALSE,July
+July 1820 nonfeeding obs1.csv,0,1820,TRUE,July
+July 1820 nonfeeding obs2.csv,0,1820,TRUE,July
+July 1820 nonfeeding obs3.csv,0,1820,TRUE,July
+July 1820 nonfeeding obs4.csv,0,1820,TRUE,July
+July 1841 feeding obs 1.csv,2,1841,FALSE,July
+July 1841 feeding obs 2.csv,3,1841,FALSE,July
+July 1841 feeding obs 3.csv,1,1841,FALSE,July
+July 1841 feeding obs 4.csv,1,1841,FALSE,July
+July 1841 nonfeeding obs1.csv,0,1841,TRUE,July
+July 1841 nonfeeding obs2.csv,0,1841,TRUE,July
+July 1841 nonfeeding obs3.csv,0,1841,TRUE,July
+July 1841 nonfeeding obs4.csv,0,1841,TRUE,July
+July 1842 feeding obs 2.csv,4,1842,FALSE,July
+July 1842 feeding obs 3.csv,2,1842,FALSE,July
+July 1842 feeding obs 4.csv,0,1842,FALSE,July
+July 1842 feeding obs1.csv,1,1842,FALSE,July
+July 1842 nonfeeding obs1.csv,0,1842,TRUE,July
+July 1842 nonfeeding obs2.csv,0,1842,TRUE,July
+July 1842 nonfeeding obs3.csv,2,1842,TRUE,July
+July 1842 nonfeeding obs4.csv,0,1842,TRUE,July
+July 1850 feeding obs 1.csv,2,1850,FALSE,July
+July 1850 feeding obs 2.csv,3,1850,FALSE,July
+July 1850 feeding obs 3.csv,4,1850,FALSE,July
+July 1850 feeding obs 4.csv,3,1850,FALSE,July
+July 1850 nonfeeding obs1.csv,1,1850,TRUE,July
+July 1850 nonfeeding obs2.csv,0,1850,TRUE,July
+July 1850 nonfeeding obs3.csv,0,1850,TRUE,July
+July 1850 nonfeeding obs4.csv,0,1850,TRUE,July
+July 1851 feeding obs 2.csv,1,1851,FALSE,July
+July 1851 feeding obs 3.csv,1,1851,FALSE,July
+July 1851 feeding obs 4.csv,1,1851,FALSE,July
+July 1851 feeding obs1.csv,0,1851,FALSE,July
+July 1851 nonfeeding obs1.csv,0,1851,TRUE,July
+July 1851 nonfeeding obs2.csv,0,1851,TRUE,July
+July 1851 nonfeeding obs4.csv,0,1851,TRUE,July
+July 1851nonfeeding obs3.csv,0,1851,TRUE,July
+July 1853 feeding obs 1.csv,2,1853,FALSE,July
+July 1853 feeding obs 2.csv,2,1853,FALSE,July
+July 1853 feeding obs 3.csv,2,1853,FALSE,July
+July 1853 feeding obs 4.csv,2,1853,FALSE,July
+July 1853 nonfeeding obs1.csv,0,1853,TRUE,July
+July 1853 nonfeeding obs2.csv,0,1853,TRUE,July
+July 1853 nonfeeding obs3.csv,0,1853,TRUE,July
+July 1853 nonfeeding obs4.csv,0,1853,TRUE,July
+August 1600 feeding obs 1.csv,3,1600,FALSE,August
+August 1600 feeding obs 2.csv,1,1600,FALSE,August
+August 1600 feeding obs 3.csv,2,1600,FALSE,August
+August 1600 feeding obs4.csv,2,1600,FALSE,August
+August 1600 nonfeeding Obs1.csv,0,1600,TRUE,August
+August 1600 nonfeeding obs2.csv,0,1600,TRUE,August
+August 1600 nonfeeding obs3.csv,0,1600,TRUE,August
+August 1600 nonfeeding obs4.csv,0,1600,TRUE,August
+August 1601 feeding obs 1.csv,2,1601,FALSE,August
+August 1601 feeding obs 2.csv,1,1601,FALSE,August
+August 1601 feeding obs 3.csv,1,1601,FALSE,August
+August 1601 feeding obs4.csv,0,1601,FALSE,August
+August 1601 nonfeeding obs1.csv,1,1601,TRUE,August
+August 1601 nonfeeding obs2.csv,0,1601,TRUE,August
+August 1601 nonfeeding obs3.csv,0,1601,TRUE,August
+August 1601 nonfeeding obs4.csv,2,1601,TRUE,August
+August 1602 feeding obs 1.csv,4,1602,FALSE,August
+August 1602 feeding obs 2.csv,3,1602,FALSE,August
+August 1602 feeding obs 3.csv,5,1602,FALSE,August
+August 1602 feeding obs4.csv,5,1602,FALSE,August
+August 1602 nonfeeding obs1.csv,1,1602,TRUE,August
+August 1602 nonfeeding obs2.csv,1,1602,TRUE,August
+August 1602 nonfeeding obs3.csv,0,1602,TRUE,August
+August 1602 nonfeeding obs4.csv,0,1602,TRUE,August
+August 1610 feeding obs 1.csv,3,1610,FALSE,August
+August 1610 feeding obs 2.csv,3,1610,FALSE,August
+August 1610 feeding obs 3.csv,3,1610,FALSE,August
+August 1610 feeding obs4.csv,4,1610,FALSE,August
+August 1610 nonfeeding obs1.csv,0,1610,TRUE,August
+August 1610 nonfeeding obs2.csv,0,1610,TRUE,August
+August 1610 nonfeeding obs3.csv,0,1610,TRUE,August
+August 1610 nonfeeding obs4.csv,0,1610,TRUE,August
+August 1617 feeding obs 1.csv,1,1617,FALSE,August
+August 1617 feeding obs 2.csv,1,1617,FALSE,August
+August 1617 feeding obs 3.csv,3,1617,FALSE,August
+August 1617 feeding obs4.csv,2,1617,FALSE,August
+August 1617 nonfeeding obs1.csv,0,1617,TRUE,August
+August 1617 nonfeeding obs2.csv,0,1617,TRUE,August
+August 1617 nonfeeding obs3.csv,0,1617,TRUE,August
+August 1617 nonfeeding obs4.csv,0,1617,TRUE,August
+August 1622 feeding obs 1.csv,6,1622,FALSE,August
+August 1622 feeding obs 3.csv,5,1622,FALSE,August
+August 1622 feeding obs1.csv,2,1622,FALSE,August
+August 1622 feeding obs4.csv,6,1622,FALSE,August
+August 1622 nonfeeding obs1.csv,0,1622,TRUE,August
+August 1622 nonfeeding obs2.csv,2,1622,TRUE,August
+August 1622 nonfeeding obs3.csv,0,1622,TRUE,August
+August 1622 nonfeeding obs4.csv,4,1622,TRUE,August
+August 1623 feeding obs 1.csv,4,1623,FALSE,August
+August 1623 feeding obs 2.csv,3,1623,FALSE,August
+August 1623 feeding obs 3.csv,5,1623,FALSE,August
+August 1623 feeding obs4.csv,5,1623,FALSE,August
+August 1623 nonfeeding obs1.csv,0,1623,TRUE,August
+August 1623 nonfeeding Obs2.csv,0,1623,TRUE,August
+August 1623 nonfeeding obs3.csv,0,1623,TRUE,August
+August 1623 nonfeeding obs4.csv,0,1623,TRUE,August
+August 1703 feeding obs 1.csv,3,1703,FALSE,August
+August 1703 feeding obs 2.csv,2,1703,FALSE,August
+August 1703 feeding obs 3.csv,1,1703,FALSE,August
+August 1703 feeding obs4.csv,1,1703,FALSE,August
+August 1703 nonfeeding obs1.csv,0,1703,TRUE,August
+August 1703 nonfeeding obs2.csv,1,1703,TRUE,August
+August 1703 nonfeeding obs3.csv,0,1703,TRUE,August
+August 1703 nonfeeding obs4.csv,0,1703,TRUE,August
+August 1802 feeding obs 1.csv,4,1802,FALSE,August
+August 1802 feeding obs 3.csv,3,1802,FALSE,August
+August 1802 feeding obs2.csv,1,1802,FALSE,August
+August 1802 feeding obs4.csv,2,1802,FALSE,August
+August 1802 nonfeeding obs1.csv,0,1802,TRUE,August
+August 1802 nonfeeding Obs2.csv,0,1802,TRUE,August
+August 1802 nonfeeding obs3.csv,0,1802,TRUE,August
+August 1802 nonfeeding obs4.csv,0,1802,TRUE,August
+August 1803 feeding obs 1.csv,0,1803,FALSE,August
+August 1803 feeding obs 2.csv,1,1803,FALSE,August
+August 1803 feeding obs 3.csv,1,1803,FALSE,August
+August 1803 feeding obs4.csv,1,1803,FALSE,August
+August 1803 nonfeeding obs1.csv,0,1803,TRUE,August
+August 1803 nonfeeding obs2.csv,0,1803,TRUE,August
+August 1803 nonfeeding obs3.csv,0,1803,TRUE,August
+August 1803 nonfeeding obs4.csv,0,1803,TRUE,August
+August 1820 feeding obs 1.csv,4,1820,FALSE,August
+August 1820 feeding obs 2.csv,5,1820,FALSE,August
+August 1820 feeding obs 3.csv,2,1820,FALSE,August
+August 1820 feeding obs4.csv,3,1820,FALSE,August
+August 1820 nonfeeding obs1.csv,0,1820,TRUE,August
+August 1820 nonfeeding obs2.csv,0,1820,TRUE,August
+August 1820 nonfeeding obs3.csv,0,1820,TRUE,August
+August 1820 nonfeeding obs4.csv,0,1820,TRUE,August
+August 1841 feeding obs 1.csv,2,1841,FALSE,August
+August 1841 feeding obs 2.csv,1,1841,FALSE,August
+August 1841 feeding obs 3.csv,1,1841,FALSE,August
+August 1841 feeding obs4.csv,0,1841,FALSE,August
+August 1841 nonfeeding obs 4.csv,0,1841,TRUE,August
+August 1841 nonfeeding obs1.csv,0,1841,TRUE,August
+August 1841 nonfeeding obs2.csv,0,1841,TRUE,August
+August 1841 nonfeeding obs3.csv,0,1841,TRUE,August
+August 1842 feeding obs 1.csv,2,1842,FALSE,August
+August 1842 feeding obs 2.csv,2,1842,FALSE,August
+August 1842 feeding obs 3.csv,3,1842,FALSE,August
+August 1842 feeding obs4.csv,2,1842,FALSE,August
+August 1842 nonfeeding obs1.csv,0,1842,TRUE,August
+August 1842 nonfeeding obs2.csv,0,1842,TRUE,August
+August 1842 nonfeeding obs3.csv,0,1842,TRUE,August
+August 1842 nonfeeding obs4.csv,0,1842,TRUE,August
+August 1850 feeding obs 1.csv,3,1850,FALSE,August
+August 1850 feeding obs 2.csv,3,1850,FALSE,August
+August 1850 feeding obs 3.csv,6,1850,FALSE,August
+August 1850 feeding obs4.csv,2,1850,FALSE,August
+August 1850 nonfeeding obs1.csv,0,1850,TRUE,August
+August 1850 nonfeeding obs2.csv,1,1850,TRUE,August
+August 1850 nonfeeding obs3.csv,0,1850,TRUE,August
+August 1850 nonfeeding obs4.csv,0,1850,TRUE,August
+August 1851 feeding obs 1.csv,1,1851,FALSE,August
+August 1851 feeding obs 2.csv,2,1851,FALSE,August
+August 1851 feeding obs 3.csv,2,1851,FALSE,August
+August 1851 feeding obs4.csv,0,1851,FALSE,August
+August 1851 nonfeeding obs1.csv,0,1851,TRUE,August
+August 1851 nonfeeding obs2.csv,0,1851,TRUE,August
+August 1851 nonfeeding obs3.csv,0,1851,TRUE,August
+August 1851 nonfeeding obs4.csv,0,1851,TRUE,August
+August 1853 feeding obs 1.csv,2,1853,FALSE,August
+August 1853 feeding obs 2.csv,1,1853,FALSE,August
+August 1853 feeding obs 3.csv,2,1853,FALSE,August
+August 1853 feeding obs4.csv,0,1853,FALSE,August
+August 1853 nonfeeding obs1.csv,0,1853,TRUE,August
+August 1853 nonfeeding obs2.csv,1,1853,TRUE,August
+August 1853 nonfeeding Obs3.csv,0,1853,TRUE,August
+August 1853 nonfeeding obs4.csv,0,1853,TRUE,August
+September 1600 feeding obs 1.csv,2,1600,FALSE,September
+September 1600 feeding obs 2.csv,1,1600,FALSE,September
+September 1600 feeding obs 3.csv,2,1600,FALSE,September
+September 1600 feeding obs 4.csv,2,1600,FALSE,September
+September 1600 nonfeeding obs 3.csv,1,1600,TRUE,September
+September 1600 nonfeeding obs1.csv,1,1600,TRUE,September
+September 1600 nonfeeding Obs2.csv,0,1600,TRUE,September
+September 1600 nonfeeding obs4.csv,2,1600,TRUE,September
+September 1601 feeding obs 1.csv,1,1601,FALSE,September
+September 1601 feeding obs 2.csv,0,1601,FALSE,September
+September 1601 feeding obs 3.csv,2,1601,FALSE,September
+September 1601 feeding obs 4.csv,1,1601,FALSE,September
+September 1601 nonfeeding Obs1.csv,0,1601,TRUE,September
+September 1601 nonfeeding obs2.csv,0,1601,TRUE,September
+September 1601 nonfeeding obs3.csv,0,1601,TRUE,September
+September 1601 nonfeeding obs4.csv,0,1601,TRUE,September
+September 1602 feeding obs 1.csv,3,1602,FALSE,September
+September 1602 feeding obs 2.csv,6,1602,FALSE,September
+September 1602 feeding obs 3.csv,2,1602,FALSE,September
+September 1602 feeding obs 4.csv,3,1602,FALSE,September
+September 1602 nonfeeding Obs1.csv,1,1602,TRUE,September
+September 1602 nonfeeding Obs2.csv,0,1602,TRUE,September
+September 1602 nonfeeding obs3.csv,0,1602,TRUE,September
+September 1602 nonfeeding obs4.csv,0,1602,TRUE,September
+September 1610 feeding obs 1.csv,2,1610,FALSE,September
+September 1610 feeding obs 2.csv,2,1610,FALSE,September
+September 1610 feeding obs 3.csv,3,1610,FALSE,September
+September 1610 feeding obs 4.csv,2,1610,FALSE,September
+September 1610 nonfeeding Obs1.csv,0,1610,TRUE,September
+September 1610 nonfeeding obs2.csv,2,1610,TRUE,September
+September 1610 nonfeeding obs3.csv,0,1610,TRUE,September
+September 1610 nonfeeding obs4.csv,0,1610,TRUE,September
+September 1617 feeding obs 1.csv,1,1617,FALSE,September
+September 1617 feeding obs 2.csv,1,1617,FALSE,September
+September 1617 feeding obs 3.csv,3,1617,FALSE,September
+September 1617 feeding obs 4.csv,2,1617,FALSE,September
+September 1617 nonfeeding obs1.csv,0,1617,TRUE,September
+September 1617 nonfeeding obs2.csv,0,1617,TRUE,September
+September 1617 nonfeeding obs3.csv,0,1617,TRUE,September
+September 1617 nonfeeding obs4.csv,0,1617,TRUE,September
+September 1622 feeding obs 1.csv,4,1622,FALSE,September
+September 1622 feeding obs 2.csv,2,1622,FALSE,September
+September 1622 feeding obs 3.csv,3,1622,FALSE,September
+September 1622 feeding obs 4.csv,6,1622,FALSE,September
+September 1622 nonfeeding Obs1.csv,0,1622,TRUE,September
+September 1622 nonfeeding Obs2.csv,0,1622,TRUE,September
+September 1622 nonfeeding obs3.csv,1,1622,TRUE,September
+September 1622 nonfeedings obs4.csv,0,1622,TRUE,September
+September 1623 feeding obs 1.csv,2,1623,FALSE,September
+September 1623 feeding obs 2.csv,1,1623,FALSE,September
+September 1623 feeding obs 3.csv,3,1623,FALSE,September
+September 1623 feeding obs 4.csv,3,1623,FALSE,September
+September 1623 nonfeeding obs1.csv,0,1623,TRUE,September
+September 1623 nonfeeding Obs2.csv,0,1623,TRUE,September
+September 1623 nonfeeding obs3.csv,0,1623,TRUE,September
+September 1623 nonfeeding obs4.csv,1,1623,TRUE,September
+September 1703 feeding obs 1.csv,1,1703,FALSE,September
+September 1703 feeding obs 2.csv,1,1703,FALSE,September
+September 1703 feeding obs 3.csv,1,1703,FALSE,September
+September 1703 feeding obs 4.csv,1,1703,FALSE,September
+September 1703 nonfeeding Obs1.csv,0,1703,TRUE,September
+September 1703 nonfeeding obs2.csv,3,1703,TRUE,September
+September 1703 nonfeeding obs3.csv,0,1703,TRUE,September
+September 1703 nonfeeding obs4.csv,0,1703,TRUE,September
+September 1802 feeding obs 1.csv,1,1802,FALSE,September
+September 1802 feeding obs 2.csv,3,1802,FALSE,September
+September 1802 feeding obs 3.csv,2,1802,FALSE,September
+September 1802 feeding obs 4.csv,2,1802,FALSE,September
+September 1802 nonfeeding ob4.csv,0,1802,TRUE,September
+September 1802 nonfeeding obs1.csv,0,1802,TRUE,September
+September 1802 nonfeeding Obs2.csv,0,1802,TRUE,September
+September 1802 nonfeeding obs3.csv,0,1802,TRUE,September
+September 1803 feeding obs 1.csv,0,1803,FALSE,September
+September 1803 feeding obs 2.csv,0,1803,FALSE,September
+September 1803 feeding obs 3.csv,0,1803,FALSE,September
+September 1803 feeding obs 4.csv,0,1803,FALSE,September
+September 1803 nonfeeding obs1.csv,0,1803,TRUE,September
+September 1803 nonfeeding obs2.csv,1,1803,TRUE,September
+September 1803 nonfeeding obs3.csv,0,1803,TRUE,September
+September 1803 nonfeeding obs4.csv,0,1803,TRUE,September
+September 1820 feeding obs 1.csv,4,1820,FALSE,September
+September 1820 feeding obs 2.csv,3,1820,FALSE,September
+September 1820 feeding obs 3.csv,2,1820,FALSE,September
+September 1820 feeding obs 4.csv,5,1820,FALSE,September
+September 1820 nonfeeding obs 3.csv,0,1820,TRUE,September
+September 1820 nonfeeding obs1.csv,2,1820,TRUE,September
+September 1820 nonfeeding Obs2.csv,1,1820,TRUE,September
+September 1820 nonfeeding obs4.csv,1,1820,TRUE,September
+September 1841 feeding obs 1.csv,0,1841,FALSE,September
+September 1841 feeding obs 2.csv,0,1841,FALSE,September
+September 1841 feeding obs 3.csv,0,1841,FALSE,September
+September 1841 feeding obs 4.csv,1,1841,FALSE,September
+September 1841 nonfeeding Obs1.csv,0,1841,TRUE,September
+September 1841 nonfeeding obs2.csv,0,1841,TRUE,September
+September 1841 nonfeeding obs3.csv,0,1841,TRUE,September
+September 1841 nonfeeding obs4.csv,0,1841,TRUE,September
+September 1842 feeding obs 1.csv,3,1842,FALSE,September
+September 1842 feeding obs 2.csv,3,1842,FALSE,September
+September 1842 feeding obs 3.csv,2,1842,FALSE,September
+September 1842 feeding obs 4.csv,1,1842,FALSE,September
+September 1842 nonfeeding obs1.csv,0,1842,TRUE,September
+September 1842 nonfeeding obs2.csv,0,1842,TRUE,September
+September 1842 nonfeeding obs3.csv,0,1842,TRUE,September
+September 1842 nonfeeding obs4.csv,0,1842,TRUE,September
+September 1850 feeding obs 1.csv,3,1850,FALSE,September
+September 1850 feeding obs 2.csv,1,1850,FALSE,September
+September 1850 feeding obs 3.csv,3,1850,FALSE,September
+September 1850 feeding obs 4.csv,5,1850,FALSE,September
+September 1850 nonfeeding obs1.csv,1,1850,TRUE,September
+September 1850 nonfeeding Obs2.csv,1,1850,TRUE,September
+September 1850 nonfeeding obs3.csv,0,1850,TRUE,September
+September 1850 nonfeeding obs4.csv,0,1850,TRUE,September
+September 1851 feeding obs 1.csv,1,1851,FALSE,September
+September 1851 feeding obs 2.csv,0,1851,FALSE,September
+September 1851 feeding obs 3.csv,0,1851,FALSE,September
+September 1851 feeding obs 4.csv,1,1851,FALSE,September
+September 1851 nonfeeding Obs1.csv,0,1851,TRUE,September
+September 1851 nonfeeding obs2.csv,1,1851,TRUE,September
+September 1851 nonfeeding obs3.csv,0,1851,TRUE,September
+September 1851 nonfeeding obs4.csv,0,1851,TRUE,September
+September 1853 feeding obs 1.csv,0,1853,FALSE,September
+September 1853 feeding obs 2.csv,1,1853,FALSE,September
+September 1853 feeding obs 3.csv,0,1853,FALSE,September
+September 1853 feeding obs 4.csv,0,1853,FALSE,September
+September 1853 nonfeeding Obs1.csv,0,1853,TRUE,September
+September 1853 nonfeeding obs2.csv,1,1853,TRUE,September
+September 1853 nonfeeding obs3.csv,1,1853,TRUE,September
+September 1853 nonfeeding obs4.csv,0,1853,TRUE,September
+October 1600 feeding obs 2.csv,2,1600,FALSE,October
+October 1600 feeding obs 3.csv,5,1600,FALSE,October
+October 1600 feeding obs 4.csv,2,1600,FALSE,October
+October 1600 feeding obs1.csv,4,1600,FALSE,October
+October 1600 nonfeeding obs 3.csv,2,1600,TRUE,October
+October 1600 nonfeeding obs1.csv,1,1600,TRUE,October
+October 1600 nonfeeding obs2.csv,1,1600,TRUE,October
+October 1600 nonfeeding obs4.csv,0,1600,TRUE,October
+October 1601 feeding obs 2.csv,2,1601,FALSE,October
+October 1601 feeding obs 3.csv,2,1601,FALSE,October
+October 1601 feeding obs 4.csv,1,1601,FALSE,October
+October 1601 feeding obs1.csv,1,1601,FALSE,October
+October 1601 nonfeeding obs1.csv,0,1601,TRUE,October
+October 1601 nonfeeding obs2.csv,0,1601,TRUE,October
+October 1601 nonfeeding obs3.csv,0,1601,TRUE,October
+October 1601 nonfeeding obs4.csv,0,1601,TRUE,October
+October 1602 feeding obs 1.csv,3,1602,FALSE,October
+October 1602 feeding obs 2.csv,3,1602,FALSE,October
+October 1602 feeding obs 3.csv,6,1602,FALSE,October
+October 1602 feeding obs 4.csv,2,1602,FALSE,October
+October 1602 nonfeeding obs1.csv,0,1602,TRUE,October
+October 1602 nonfeeding obs2.csv,0,1602,TRUE,October
+October 1602 nonfeeding obs3.csv,0,1602,TRUE,October
+October 1602 nonfeeding obs4.csv,0,1602,TRUE,October
+October 1610 feeding obs 1.csv,2,1610,FALSE,October
+October 1610 feeding obs 3.csv,2,1610,FALSE,October
+October 1610 feeding obs 4.csv,1,1610,FALSE,October
+October 1610 feeding obs2.csv,0,1610,FALSE,October
+October 1610 nonfeeding obs1.csv,0,1610,TRUE,October
+October 1610 nonfeeding obs2.csv,0,1610,TRUE,October
+October 1610 nonfeeding obs3.csv,0,1610,TRUE,October
+October 1610 nonfeeding obs4.csv,0,1610,TRUE,October
+October 1617 feeding obs 1.csv,2,1617,FALSE,October
+October 1617 feeding obs 2.csv,2,1617,FALSE,October
+October 1617 feeding obs 3.csv,3,1617,FALSE,October
+October 1617 feeding obs 4.csv,3,1617,FALSE,October
+October 1617 nonfeeding obs 3.csv,0,1617,TRUE,October
+October 1617 nonfeeding obs1.csv,0,1617,TRUE,October
+October 1617 nonfeeding obs2.csv,0,1617,TRUE,October
+October 1617 nonfeeding obs4.csv,0,1617,TRUE,October
+October 1622 feeding obs 2.csv,5,1622,FALSE,October
+October 1622 feeding obs 3.csv,5,1622,FALSE,October
+October 1622 feeding obs 4.csv,5,1622,FALSE,October
+October 1622 feeding obs1.csv,3,1622,FALSE,October
+October 1622 nonfeeding obs1.csv,0,1622,TRUE,October
+October 1622 nonfeeding obs2.csv,1,1622,TRUE,October
+October 1622 nonfeeding obs3.csv,2,1622,TRUE,October
+October 1622 nonfeeding obs4.csv,0,1622,TRUE,October
+October 1623 feeding obs 2.csv,2,1623,FALSE,October
+October 1623 feeding obs 3.csv,3,1623,FALSE,October
+October 1623 feeding obs 4.csv,2,1623,FALSE,October
+October 1623 feeding obs1.csv,4,1623,FALSE,October
+October 1623 nonfeeding obs1.csv,0,1623,TRUE,October
+October 1623 nonfeeding obs2.csv,1,1623,TRUE,October
+October 1623 nonfeeding obs3.csv,1,1623,TRUE,October
+October 1623 nonfeeding obs4.csv,0,1623,TRUE,October
+October 1703 feeding obs 1.csv,2,1703,FALSE,October
+October 1703 feeding obs 3.csv,1,1703,FALSE,October
+October 1703 feeding obs 4.csv,2,1703,FALSE,October
+October 1703 feeding obs2.csv,1,1703,FALSE,October
+October 1703 nonfeeding Obs1.csv,0,1703,TRUE,October
+October 1703 nonfeeding obs2.csv,1,1703,TRUE,October
+October 1703 nonfeeding obs3.csv,0,1703,TRUE,October
+October 1703 nonfeeding obs4.csv,0,1703,TRUE,October
+October 1802 feeding obs 1.csv,3,1802,FALSE,October
+October 1802 feeding obs 2.csv,3,1802,FALSE,October
+October 1802 feeding obs 3.csv,4,1802,FALSE,October
+October 1802 feeding obs 4.csv,1,1802,FALSE,October
+October 1802 nonfeeding obs 3.csv,0,1802,TRUE,October
+October 1802 nonfeeding obs1.csv,0,1802,TRUE,October
+October 1802 nonfeeding obs2.csv,1,1802,TRUE,October
+October 1802 nonfeeding obs4.csv,0,1802,TRUE,October
+October 1803 feeding obs 1.csv,0,1803,FALSE,October
+October 1803 feeding obs 3.csv,1,1803,FALSE,October
+October 1803 feeding obs 4.csv,1,1803,FALSE,October
+October 1803 feeding obs2.csv,1,1803,FALSE,October
+October 1803 nonfeeding obs1.csv,0,1803,TRUE,October
+October 1803 nonfeeding obs2.csv,0,1803,TRUE,October
+October 1803 nonfeeding obs3.csv,2,1803,TRUE,October
+October 1803 nonfeeding obs4.csv,0,1803,TRUE,October
+October 1820 feeding obs 2.csv,2,1820,FALSE,October
+October 1820 feeding obs 3.csv,1,1820,FALSE,October
+October 1820 feeding obs 4.csv,4,1820,FALSE,October
+October 1820 feeding obs1.csv,2,1820,FALSE,October
+October 1820 nonfeeding obs1.csv,3,1820,TRUE,October
+October 1820 nonfeeding obs2.csv,0,1820,TRUE,October
+October 1820 nonfeeding obs3.csv,2,1820,TRUE,October
+October 1820 nonfeeding obs4.csv,0,1820,TRUE,October
+October 1841 feeding obs 2.csv,2,1841,FALSE,October
+October 1841 feeding obs 3.csv,1,1841,FALSE,October
+October 1841 feeding obs 4.csv,2,1841,FALSE,October
+October 1841 feeding obs1.csv,2,1841,FALSE,October
+October 1841 nonfeeding obs1.csv,1,1841,TRUE,October
+October 1841 nonfeeding obs2.csv,1,1841,TRUE,October
+October 1841 nonfeeding obs3.csv,2,1841,TRUE,October
+October 1841 nonfeeding obs4.csv,2,1841,TRUE,October
+October 1842 feeding obs 1.csv,3,1842,FALSE,October
+October 1842 feeding obs 3.csv,3,1842,FALSE,October
+October 1842 feeding obs 4.csv,0,1842,FALSE,October
+October 1842 feeding obs2.csv,2,1842,FALSE,October
+October 1842 nonfeeding obs1.csv,0,1842,TRUE,October
+October 1842 nonfeeding obs2.csv,0,1842,TRUE,October
+October 1842 nonfeeding obs3.csv,1,1842,TRUE,October
+October 1842 nonfeeding obs4.csv,0,1842,TRUE,October
+October 1850 feeding obs 1.csv,1,1850,FALSE,October
+October 1850 feeding obs 3.csv,3,1850,FALSE,October
+October 1850 feeding obs 4.csv,1,1850,FALSE,October
+October 1850 feeding obs2.csv,4,1850,FALSE,October
+October 1850 nonfeeding obs1.csv,0,1850,TRUE,October
+October 1850 nonfeeding obs2.csv,0,1850,TRUE,October
+October 1850 nonfeeding obs3.csv,2,1850,TRUE,October
+October 1850 nonfeeding obs4.csv,0,1850,TRUE,October
+October 1851 feding obs 1.csv,0,1851,FALSE,October
+October 1851 feeding obs 3.csv,1,1851,FALSE,October
+October 1851 feeding obs 4.csv,0,1851,FALSE,October
+October 1851 feeding obs2.csv,1,1851,FALSE,October
+October 1851 nonfeeding obs 2.csv,0,1851,TRUE,October
+October 1851 nonfeeding obs 3.csv,0,1851,TRUE,October
+October 1851 nonfeeding obs1.csv,0,1851,TRUE,October
+October 1851 nonfeeding obs4.csv,1,1851,TRUE,October
+October 1853 feeding obs 1.csv,0,1853,FALSE,October
+October 1853 feeding obs 2.csv,1,1853,FALSE,October
+October 1853 feeding obs 3.csv,0,1853,FALSE,October
+October 1853 feeding obs 4.csv,0,1853,FALSE,October
+October 1853 nonfeeding obs1.csv,1,1853,TRUE,October
+October 1853 nonfeeding obs2.csv,0,1853,TRUE,October
+October 1853 nonfeeding obs3.csv,0,1853,TRUE,October
+October 1853 nonfeeding obs4.csv,0,1853,TRUE,October
+November 1600 feeding obs 1.csv,4,1600,FALSE,November
+November 1600 feeding obs 2.csv,2,1600,FALSE,November
+November 1600 feeding obs 3.csv,5,1600,FALSE,November
+November 1600 feeding obs 4.csv,4,1600,FALSE,November
+November 1600 nonfeeding obs1.csv,1,1600,TRUE,November
+November 1600 nonfeeding obs2.csv,1,1600,TRUE,November
+November 1600 nonfeeding obs3.csv,0,1600,TRUE,November
+November 1600 nonfeeding obs4.csv,0,1600,TRUE,November
+November 1601 feeding obs 1.csv,1,1601,FALSE,November
+November 1601 feeding obs 2.csv,0,1601,FALSE,November
+November 1601 feeding obs 3.csv,0,1601,FALSE,November
+November 1601 feeding obs 4.csv,2,1601,FALSE,November
+November 1601 nonfeeding obs1.csv,0,1601,TRUE,November
+November 1601 nonfeeding obs2.csv,2,1601,TRUE,November
+November 1601 nonfeeding obs3.csv,0,1601,TRUE,November
+November 1601 nonfeeding obs4.csv,0,1601,TRUE,November
+November 1602 feeding obs 1.csv,6,1602,FALSE,November
+November 1602 feeding obs 2.csv,5,1602,FALSE,November
+November 1602 feeding obs 3.csv,6,1602,FALSE,November
+November 1602 feeding obs 4.csv,5,1602,FALSE,November
+November 1602 nonfeeding obs1.csv,0,1602,TRUE,November
+November 1602 nonfeeding obs2.csv,1,1602,TRUE,November
+November 1602 nonfeeding obs3.csv,0,1602,TRUE,November
+November 1602 nonfeeding obs4.csv,0,1602,TRUE,November
+November 1610 feeding obs 1.csv,1,1610,FALSE,November
+November 1610 feeding obs 2.csv,4,1610,FALSE,November
+November 1610 feeding obs 3.csv,3,1610,FALSE,November
+November 1610 feeding obs 4.csv,5,1610,FALSE,November
+November 1610 nonfeeding obs1.csv,0,1610,TRUE,November
+November 1610 nonfeeding obs2.csv,0,1610,TRUE,November
+November 1610 nonfeeding obs3.csv,1,1610,TRUE,November
+November 1610 nonfeeding obs4.csv,0,1610,TRUE,November
+November 1617 feeding obs 1.csv,3,1617,FALSE,November
+November 1617 feeding obs 2.csv,1,1617,FALSE,November
+November 1617 feeding obs 3.csv,5,1617,FALSE,November
+November 1617 feeding obs 4.csv,5,1617,FALSE,November
+November 1617 nonfeeding obs1.csv,0,1617,TRUE,November
+November 1617 nonfeeding obs2.csv,0,1617,TRUE,November
+November 1617 nonfeeding obs3.csv,0,1617,TRUE,November
+November 1617 nonfeeding obs4.csv,0,1617,TRUE,November
+November 1622 feeding obs 1.csv,3,1622,FALSE,November
+November 1622 feeding obs 2.csv,4,1622,FALSE,November
+November 1622 feeding obs 3.csv,5,1622,FALSE,November
+November 1622 feeding obs 4.csv,4,1622,FALSE,November
+November 1622 nonfeeding obs1.csv,3,1622,TRUE,November
+November 1622 nonfeeding obs2.csv,0,1622,TRUE,November
+November 1622 nonfeeding obs3.csv,0,1622,TRUE,November
+November 1622 nonfeeding obs4.csv,0,1622,TRUE,November
+November 1623 feeding obs 1.csv,1,1623,FALSE,November
+November 1623 feeding obs 2.csv,4,1623,FALSE,November
+November 1623 feeding obs 3.csv,4,1623,FALSE,November
+November 1623 feeding obs 4.csv,7,1623,FALSE,November
+November 1623 nonfeeding obs1.csv,0,1623,TRUE,November
+November 1623 nonfeeding obs2.csv,1,1623,TRUE,November
+November 1623 nonfeeding obs3.csv,0,1623,TRUE,November
+November 1623 nonfeeding obs4.csv,0,1623,TRUE,November
+November 1703 feeding obs 1.csv,0,1703,FALSE,November
+November 1703 feeding obs 2.csv,1,1703,FALSE,November
+November 1703 feeding obs 3.csv,1,1703,FALSE,November
+November 1703 feeding obs 4.csv,4,1703,FALSE,November
+November 1703 nonfeeding obs1.csv,1,1703,TRUE,November
+November 1703 nonfeeding obs2.csv,0,1703,TRUE,November
+November 1703 nonfeeding obs3.csv,2,1703,TRUE,November
+November 1703 nonfeeding obs4.csv,0,1703,TRUE,November
+November 1802 feeding obs 1.csv,4,1802,FALSE,November
+November 1802 feeding obs 2.csv,2,1802,FALSE,November
+November 1802 feeding obs 3.csv,4,1802,FALSE,November
+November 1802 feeding obs 4.csv,3,1802,FALSE,November
+November 1802 nonfeeding obs1.csv,1,1802,TRUE,November
+November 1802 nonfeeding obs2.csv,1,1802,TRUE,November
+November 1802 nonfeeding obs3.csv,0,1802,TRUE,November
+November 1802 nonfeeding obs4.csv,0,1802,TRUE,November
+November 1803 feeding obs 1.csv,1,1803,FALSE,November
+November 1803 feeding obs 2.csv,1,1803,FALSE,November
+November 1803 feeding obs 3.csv,1,1803,FALSE,November
+November 1803 feeding obs 4.csv,2,1803,FALSE,November
+November 1803 nonfeeding obs1.csv,2,1803,TRUE,November
+November 1803 nonfeeding obs2.csv,0,1803,TRUE,November
+November 1803 nonfeeding obs3.csv,0,1803,TRUE,November
+November 1803 nonfeeding obs4.csv,2,1803,TRUE,November
+November 1820 feeding obs 1.csv,0,1820,FALSE,November
+November 1820 feeding obs 2.csv,3,1820,FALSE,November
+November 1820 feeding obs 3.csv,1,1820,FALSE,November
+November 1820 feeding obs 4.csv,2,1820,FALSE,November
+November 1820 nonfeeding obs1.csv,0,1820,TRUE,November
+November 1820 nonfeeding obs2.csv,0,1820,TRUE,November
+November 1820 nonfeeding obs3.csv,0,1820,TRUE,November
+November 1820 nonfeeding obs4.csv,0,1820,TRUE,November
+November 1841 feeding obs 1.csv,0,1841,FALSE,November
+November 1841 feeding obs 2.csv,1,1841,FALSE,November
+November 1841 feeding obs 3.csv,3,1841,FALSE,November
+November 1841 feeding obs 4.csv,2,1841,FALSE,November
+November 1841 nonfeeding obs1.csv,0,1841,TRUE,November
+November 1841 nonfeeding obs2.csv,0,1841,TRUE,November
+November 1841 nonfeeding obs3.csv,0,1841,TRUE,November
+November 1841 nonfeeding obs4.csv,0,1841,TRUE,November
+November 1842 feeding obs 1.csv,1,1842,FALSE,November
+November 1842 feeding obs 2.csv,2,1842,FALSE,November
+November 1842 feeding obs 3.csv,1,1842,FALSE,November
+November 1842 feeding obs 4.csv,2,1842,FALSE,November
+November 1842 nonfeeding obs1.csv,0,1842,TRUE,November
+November 1842 nonfeeding obs2.csv,0,1842,TRUE,November
+November 1842 nonfeeding obs3.csv,0,1842,TRUE,November
+November 1842 nonfeeding obs4.csv,0,1842,TRUE,November
+November 1850 feeding obs 1.csv,3,1850,FALSE,November
+November 1850 feeding obs 2.csv,4,1850,FALSE,November
+November 1850 feeding obs 3.csv,1,1850,FALSE,November
+November 1850 feeding obs 4.csv,0,1850,FALSE,November
+November 1850 nonfeeding obs1.csv,1,1850,TRUE,November
+November 1850 nonfeeding obs2.csv,1,1850,TRUE,November
+November 1850 nonfeeding obs3.csv,0,1850,TRUE,November
+November 1850 nonfeeding obs4.csv,2,1850,TRUE,November
+November 1851 feeding obs 1.csv,0,1851,FALSE,November
+November 1851 feeding obs 2.csv,0,1851,FALSE,November
+November 1851 feeding obs 3.csv,1,1851,FALSE,November
+November 1851 feeding obs 4.csv,0,1851,FALSE,November
+November 1851 nonfeeding obs1.csv,0,1851,TRUE,November
+November 1851 nonfeeding obs2.csv,0,1851,TRUE,November
+November 1851 nonfeeding obs3.csv,1,1851,TRUE,November
+November 1851 nonfeeding obs4.csv,0,1851,TRUE,November
+November 1853 feeding obs 1.csv,1,1853,FALSE,November
+November 1853 feeding obs 2.csv,2,1853,FALSE,November
+November 1853 feeding obs 3.csv,1,1853,FALSE,November
+November 1853 feeding obs 4.csv,1,1853,FALSE,November
+November 1853 nonfeeding obs1.csv,0,1853,TRUE,November
+November 1853 nonfeeding obs2.csv,0,1853,TRUE,November
+November 1853 nonfeeding obs3.csv,0,1853,TRUE,November
+November 1853 nonfeeding obs4.csv,0,1853,TRUE,November

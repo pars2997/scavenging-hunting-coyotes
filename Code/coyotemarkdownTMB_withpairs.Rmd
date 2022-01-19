@@ -1,0 +1,1567 @@
+---
+title: "Coyote Analyses"
+author: "Mitchell Parsons"
+date: "7/14/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+# Coyote Hunting vs Scavenging Analyses
+
+This document provides preliminary analysis for the coyote project. Analyses 
+include nonfeeding focal observations, feeding focal observations, car feeding
+focal observations, novel object latency to approach, puzzle box, and 
+conspecific tests. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include = FALSE, echo = FALSE, message=FALSE}
+library(tidyr)
+library(lme4)
+library(ggplot2)
+library(survival)
+library(survminer)
+library(coxme)
+library(knitr)
+library(tidyverse)
+library(glmmTMB)
+
+```
+
+
+```{r readin noncar focals, echo = FALSE, include=FALSE}
+dat<-read.csv("../RawData/AllMonthNoCar.csv")
+dat$totaltime<-rowSums(dat[,2:17])
+dat$subject<-as.factor(dat$subject)
+dat$feeding<-dat$For+dat$Eat
+dat$Social<-dat$Agg+dat$NS+dat$P
+dat$Active<-dat$Loc+dat$Ster
+dat<-dat[,c(1:17,23:25,22,18:21)]
+
+pairs <- c("1600-1623",
+           "1602-1617",
+           "1610-1703",
+           "1622-1601",
+           "1802-1853",
+           "1820-1841",
+           "1842-1851",
+           "1850-1803")
+pair<-vector()
+for (i in 1:nrow(dat)){
+  temp <- grep(dat$subject[i],pairs)
+  pair[i] <- pairs[temp]
+}
+dat$pair <- pair
+
+propdat<-dat
+propdat[,c(2:21)]<-round(propdat[,c(2:21)]/propdat[,21],4)
+propdat$Month<-ordered(propdat$Month,
+                       levels=c("Pretrial","January","February","March",
+                              "April","May","June","July","August","September",
+                              "October","November"))
+subjects<-unique(dat$subject)
+trialmonth<-unique(dat$Month)
+feeddat<-propdat[propdat$nonfeed==FALSE,]
+nonfeeddat<-propdat[propdat$nonfeed==TRUE,]
+
+hunters<-c(1602,1617,1820,1841,1600,1623,1802,1853)
+
+nonfeeddat$MonthNum <- as.numeric(nonfeeddat$Month)
+nonfeeddat$hunter <- nonfeeddat$subject%in%hunters
+
+feeddat$MonthNum <- as.numeric(feeddat$Month)
+feeddat$hunter <- feeddat$subject%in%hunters
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(for0 =  case_when(
+    For == 0 ~ 0.00001,
+    For == 1 ~ 0.99999,
+    TRUE ~ For
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(loc0 =  case_when(
+    Loc == 0 ~ 0.00001,
+    Loc == 1 ~ 0.99999,
+    TRUE ~ Loc
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(rest0 =  case_when(
+    Rest == 0 ~ 0.00001,
+    Rest == 1 ~ 0.99999,
+    TRUE ~ Rest
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(ster0 =  case_when(
+    Ster == 0 ~ 0.00001,
+    Ster == 1 ~ 0.99999,
+    TRUE ~ Ster
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(feed0 =  case_when(
+    feeding == 0 ~ 0.00001,
+    feeding == 1 ~ 0.99999,
+    TRUE ~ feeding
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(soc0 =  case_when(
+    Social == 0 ~ 0.00001,
+    Social == 1 ~ 0.99999,
+    TRUE ~ Social
+  ))
+
+nonfeeddat <- nonfeeddat %>% 
+  mutate(act0 =  case_when(
+    Active == 0 ~ 0.00001,
+    Active == 1 ~ 0.99999,
+    TRUE ~ Active
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(for0 =  case_when(
+    For == 0 ~ 0.00001,
+    For == 1 ~ 0.99999,
+    TRUE ~ For
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(loc0 =  case_when(
+    Loc == 0 ~ 0.00001,
+    Loc == 1 ~ 0.99999,
+    TRUE ~ Loc
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(rest0 =  case_when(
+    Rest == 0 ~ 0.00001,
+    Rest == 1 ~ 0.99999,
+    TRUE ~ Rest
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(ster0 =  case_when(
+    Ster == 0 ~ 0.00001,
+    Ster == 1 ~ 0.99999,
+    TRUE ~ Ster
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(feed0 =  case_when(
+    feeding == 0 ~ 0.00001,
+    feeding == 1 ~ 0.99999,
+    TRUE ~ feeding
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(soc0 =  case_when(
+    Social == 0 ~ 0.00001,
+    Social == 1 ~ 0.9999,
+    TRUE ~ Social
+  ))
+
+feeddat <- feeddat %>% 
+  mutate(act0 =  case_when(
+    Active == 0 ~ 0.00001,
+    Active == 1 ~ 0.99999,
+    TRUE ~ Active
+  ))
+
+```
+
+
+## Nonfeeding data analysis
+For nonfeeding data, I'm analyzing the proportion of time in certain activities
+through the course of the project. The data used is each observation. The model 
+is a generalized linear model with a binomial error distribution 
+(proportional data between 0-1).
+The model includes fixed effects for hunters, month, and their interaction and a 
+random effect for coyote. 
+
+Briefly, a significant effect for the "hunter" 
+variable suggests hunters are always different from non-hunters, a significant 
+effect of the month variable would suggest a temporal trend, and a significant 
+effect of the interaction would suggest a temporal trend that varies for hunters
+and scavengers. So the interaction is the piece we're really interested in.
+
+```{r nonfeeding analyses, echo = F, message=F, warning=F}
+formod <- glmmTMB(for0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+locmod <- glmmTMB(loc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+restmod <- glmmTMB(rest0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+stermod <- glmmTMB(ster0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+feedmod <- glmmTMB(feed0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+socmod <- glmmTMB(soc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+actmod <- glmmTMB(act0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=nonfeeddat,
+                family=beta_family(link = "logit"))
+```
+
+
+```{r nonfeed plots, echo = F, eval = F}
+ggplot(data = nonfeeddat, mapping = aes(x = MonthNum, y = Rest, color = hunter))+
+  geom_point() +
+  theme_minimal() +
+  xlab("Month of study") +
+  ylab("Proportion of time resting")
+
+ggplot(data = nonfeeddat, mapping = aes(x = MonthNum, y = Ster, color = hunter))+
+  geom_point()+
+  theme_minimal() +
+  xlab("Month of study") +
+  ylab("Proportion of time stereotyping")
+
+
+ggplot(data = nonfeeddat, mapping = aes(x = MonthNum, y = Active, color = hunter))+
+  geom_point()+
+  theme_minimal() +
+  xlab("Month of study") +
+  ylab("Proportion of time active")
+
+```
+
+```{r mean calculation, echo = F}
+se.month<-function(x){
+  sd(x)/sqrt(4)
+}
+blah<-tapply(nonfeeddat$For,list(nonfeeddat$subject,nonfeeddat$Month),mean)
+
+nonfeedsumdat<-matrix(NA,nrow=192,ncol=38)
+for(i in 1:19){
+  temp<-tapply(nonfeeddat[,i+1],list(nonfeeddat$subject,nonfeeddat$Month),mean)
+  temp2<-tapply(nonfeeddat[,i+1],list(nonfeeddat$subject,nonfeeddat$Month),se.month)
+  nonfeedsumdat[,i*2-1]<-c(temp)
+  nonfeedsumdat[,i*2]<-c(temp2)
+}
+
+nonfeedsumdat<-data.frame(nonfeedsumdat)
+colnames(nonfeedsumdat)<-c("Agg","Agg.se","Eat","Eat.se","For","For.se","Loc",
+                        "Loc.se","NS","NS.se","P","P.se","Rest","Rest.se",
+                        "SM","SM.se","St","St.se","CP","CP.se","Nur","Nur.se",
+                        "Other","Other.se","Out.of.Sight","Out.of.Sight.se",
+                        "PupAgg","PupAgg.se","PupPlay","PupPlay.se","Ster",
+                        "Ster.se","feed","feed.se","social","social.se",
+                        "move","move.se")
+nonfeedsumdat$Month<-rep(colnames(blah),each=16)
+nonfeedsumdat$Subject<-rep(rownames(blah),length(colnames(blah)))
+nonfeedsumdat$hunters<-nonfeedsumdat$Subject%in%hunters
+nonfeedsumdat$Month<-ordered(nonfeedsumdat$Month,
+                             levels=c("Pretrial","January","February",
+                                      "March","April","May","June",
+                                      "July","August","September",
+                                      "October","November"))
+
+se.hunt<-function(x){
+  sd(x)/sqrt(8)
+}
+
+```
+
+### Resting
+According to these analyses, both nonhunting and hunting coyotes increased the proportion of time 
+they spent resting through the study, but hunting coyotes increased more.
+```{r resting analyses and plots, echo = F, warning = F}
+
+tiff(file = "../Figures/rest.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+kable(round(summary(restmod)$coefficients$cond,3))
+
+temp<-tapply(nonfeedsumdat$Rest,list(nonfeedsumdat$hunters,
+                                          nonfeedsumdat$Month),mean)
+temp2<-tapply(nonfeedsumdat$Rest,list(nonfeedsumdat$hunters,
+                                           nonfeedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,1),
+     ylab="Proportion of time resting",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Pre","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+### Stereotyping
+According to these analyses, there was a nonsignificant decrease
+in stereotyping by hunting coyotes.
+```{r stereotyping analyses and plots, echo = F, warning = F}
+
+tiff(file = "../Figures/rest.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+kable(round(summary(stermod)$coefficients$cond,3))
+
+temp<-tapply(nonfeedsumdat$Ster,list(nonfeedsumdat$hunters,
+                                          nonfeedsumdat$Month),mean)
+temp2<-tapply(nonfeedsumdat$Ster,list(nonfeedsumdat$hunters,
+                                           nonfeedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,1),
+     ylab="Proportion of time stereotyping",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Pre","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+
+### Active
+Both hunting and nonhunting coyotes showed a decrease in time active, with 
+hunting coyotes decreasing more. 
+```{r active analyses and plotting, echo = F, warning = F}
+kable(round(summary(actmod)$coefficients$cond,3))
+
+temp<-tapply(nonfeedsumdat$move,list(nonfeedsumdat$hunters,
+                                          nonfeedsumdat$Month),mean)
+temp2<-tapply(nonfeedsumdat$move,list(nonfeedsumdat$hunters,
+                                           nonfeedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,0.4),
+     ylab="Proportion of time active",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Pre","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+### Feeding
+Both hunting and nonhunting coyotes showed no change in the proportion 
+of time spent foraging. 
+```{r feeding analyses and plotting, echo = F, warning = F}
+kable(round(summary(feedmod)$coefficients$cond,3))
+
+temp<-tapply(nonfeedsumdat$feed,list(nonfeedsumdat$hunters,
+                                          nonfeedsumdat$Month),mean)
+temp2<-tapply(nonfeedsumdat$feed,list(nonfeedsumdat$hunters,
+                                           nonfeedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,0.4),
+     ylab="Proportion of time feeding",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Pre","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+## Feeding Data Analysis
+
+The same analyses as above, but for the feeding observations without car present.
+
+```{r feeding data analyses, echo = F, warning=F, message=F,include=F}
+formodfeed <- glmmTMB(for0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+locmodfeed <- glmmTMB(loc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+restmodfeed <- glmmTMB(rest0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+stermodfeed <- glmmTMB(ster0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+feedmodfeed <- glmmTMB(feed0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+socmodfeed <- glmmTMB(soc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+actmodfeed <- glmmTMB(act0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),data=feeddat,
+                family=beta_family(link = "logit"))
+
+
+behaviors<-colnames(propdat[,c(2:20)])
+
+blah<-tapply(feeddat$For,list(feeddat$subject,feeddat$Month),mean)
+
+#nrow is number of months times number of coyotes
+#ncol is number of behaviors times 2
+#loop over number of behaviors
+feedsumdat<-matrix(NA,nrow=192,ncol=38)
+for(i in 1:19){
+  temp<-tapply(feeddat[,i+1],list(feeddat$subject,feeddat$Month),mean)
+  temp2<-tapply(feeddat[,i+1],list(feeddat$subject,feeddat$Month),se.month)
+  feedsumdat[,i*2-1]<-c(temp)
+  feedsumdat[,i*2]<-c(temp2)
+}
+
+feedsumdat<-data.frame(feedsumdat)
+colnames(feedsumdat)<-c("Agg","Agg.se","Eat","Eat.se","For","For.se","Loc",
+                        "Loc.se","NS","NS.se","P","P.se","Rest","Rest.se",
+                        "SM","SM.se","St","St.se","CP","CP.se","Nur","Nur.se",
+                        "Other","Other.se","Out.of.Sight","Out.of.Sight.se",
+                        "PupAgg","PupAgg.se","PupPlay","PupPlay.se","Ster",
+                        "Ster.se","feed","feed.se","social","social.se",
+                        "move","move.se")
+feedsumdat$Month<-rep(colnames(blah),each=16)
+feedsumdat$Subject<-rep(rownames(blah),length(colnames(blah)))
+feedsumdat$hunters<-feedsumdat$Subject%in%hunters
+feedsumdat$Month<-ordered(feedsumdat$Month,
+                          levels=c("Pretrial","January","February",
+                                   "March","April","May","June",
+                                   "July","August","September",
+                                   "October","November"))
+
+```
+
+### Feeding
+Both hunters and non-hunters showed a trend through time, decreasing into the summer and increasing into the fall, but there was no treatment effect.
+
+```{r Feeding plots, echo = F, warning=F}
+
+
+kable(round(summary(feedmodfeed)$coefficients$cond,3))
+
+pdf(file = "../Figures/feedfeed.pdf",
+      width = 7, height = 5)
+
+temp<-tapply(feedsumdat$feed,
+             list(feedsumdat$hunters,feedsumdat$Month),mean)
+temp2<-tapply(feedsumdat$feed,
+              list(feedsumdat$hunters,feedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylab="Proportion of time feeding",xlab="Month",
+     ylim=c(0,1),cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Nov","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+### Active
+
+Both hunters and non-hunters showed a decrease in time spent active over time, but this difference was consistent throughout the study suggesting no treatment effect.
+
+```{r active plots, echo = F, warning = F}
+kable(round(summary(actmodfeed)$coefficients$cond,3))
+
+tiff(file = "../Figures/feedact.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(feedsumdat$move,
+             list(feedsumdat$hunters,feedsumdat$Month),mean)
+temp2<-tapply(feedsumdat$move,
+              list(feedsumdat$hunters,feedsumdat$Month),se.hunt)
+plot(1:12,temp[1,],pch=19,col="black",type="b",
+     ylab="Proportion of time active",xlab="Month",
+     ylim=c(0,0.4),cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(seq(1.05,12.05,1),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:12,
+     labels=c("Nov","Jan","Feb","Mar","Apr","May","June",
+              "July","Aug","Sep","Oct","Nov"))
+arrows(x0=1:12,y0=temp[1,]-temp2[1,],x1=1:12,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=seq(1.05,12.05,1),y0=temp[2,]-temp2[2,],
+       x1=seq(1.05,12.05,1),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+
+## Car Feeding Data Analysis
+
+The same analyses as above, but for feeding observations with the car present.
+
+```{r car feeding data, echo = F, warning = T,include=F}
+cardat<-read.csv("../RawData/All Months Car Summary.csv")
+cardat$totaltime<-rowSums(cardat[,2:15])
+cardat$feeding<-cardat$Foraging+cardat$Eating+cardat$IntCar+cardat$InvCar
+cardat$social<-cardat$Aggression+cardat$Neutral.Social+cardat$Play
+cardat$moving<-cardat$Locomoting+cardat$Stereotyping
+cardat$car<- cardat$IntCar + cardat$InvCar
+cardat$subject<-as.factor(cardat$subject)
+
+pair<-vector()
+for (i in 1:nrow(cardat)){
+  temp <- grep(cardat$subject[i],pairs)
+  pair[i] <- pairs[temp]
+}
+cardat$pair <- pair
+
+propcardat<-cardat
+propcardat[,c(2:15,20:23,19)]<-
+  round(propcardat[,c(2:15,20:23,19)]/propcardat[,19],4)
+propcardat$Month<-ordered(propcardat$Month,
+                          levels=c("January","February","March","April","May",
+                                   "June","July","August","September","October"
+                                   ,"November"))
+subjects<-unique(propcardat$subject)
+trialmonth<-unique(propcardat$Month)
+
+behaviors<-colnames(propcardat[,c(2:15,20:23)])
+
+blah<-tapply(propcardat$IntCar,list(propcardat$subject,propcardat$Month),mean)
+
+propcardat<-propcardat[,c(1:15,20:23,16:19)]
+carfeedsumdat<-matrix(NA,nrow=176,ncol=36)
+for(i in 1:18){
+  temp<-tapply(propcardat[,i+1],list(propcardat$subject,propcardat$Month),mean)
+  temp2<-tapply(propcardat[,i+1],list(propcardat$subject,propcardat$Month),se.month)
+  carfeedsumdat[,i*2-1]<-c(temp)
+  carfeedsumdat[,i*2]<-c(temp2)
+}
+
+carfeedsumdat<-data.frame(carfeedsumdat)
+colnames(carfeedsumdat)<-c("Agg","Agg.se","Eat","Eat.se","For","For.se",
+                           "Loc","Loc.se","NS","NS.se","P","P.se","Rest",
+                           "Rest.se","St","St.se","IntC","IntC.se",
+                           "InvC","InvC.se","Other","Other.se","Out.of.Sight",
+                           "Out.of.Sight.se","SM","SM.se","Ster","Ster.se",
+                           "Feed","Feed.se","Social","Social.se",
+                           "Move","Move.se","Car","Car.se")
+carfeedsumdat$Month<-rep(colnames(blah),each=16)
+carfeedsumdat$Subject<-rep(rownames(blah),length(colnames(blah)))
+carfeedsumdat$hunters<-carfeedsumdat$Subject%in%hunters
+carfeedsumdat$Month<-
+  ordered(carfeedsumdat$Month,
+          levels=c("January","February","March","April","May","June",
+                   "July","August","September","October","November"))
+propcardat$MonthNum <- as.numeric(propcardat$Month)
+propcardat$hunter <- propcardat$subject %in% hunters
+
+propcardat <- propcardat %>% 
+  mutate(for0 =  case_when(
+    Foraging == 0 ~ 0.00001,
+    Foraging == 1 ~ 0.99999,
+    TRUE ~ Foraging
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(loc0 =  case_when(
+    Locomoting == 0 ~ 0.00001,
+    Locomoting == 1 ~ 0.99999,
+    TRUE ~ Locomoting
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(rest0 =  case_when(
+    Resting == 0 ~ 0.00001,
+    Resting == 1 ~ 0.99999,
+    TRUE ~ Resting
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(intcar0 =  case_when(
+    IntCar == 0 ~ 0.00001,
+    IntCar == 1 ~ 0.99999,
+    TRUE ~ IntCar
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(invcar0 =  case_when(
+    InvCar == 0 ~ 0.00001,
+    InvCar == 1 ~ 0.99999,
+    TRUE ~ InvCar
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(car0 =  case_when(
+    car == 0 ~ 0.00001,
+    car == 1 ~ 0.99999,
+    TRUE ~ car
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(ster0 =  case_when(
+    Stereotyping == 0 ~ 0.00001,
+    Stereotyping == 1 ~ 0.99999,
+    TRUE ~ Stereotyping
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(soc0 =  case_when(
+    social == 0 ~ 0.00001,
+    social == 1 ~ 0.99999,
+    TRUE ~ social
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(mov0 =  case_when(
+    moving == 0 ~ 0.00001,
+    moving == 1 ~ 0.99999,
+    TRUE ~ moving
+  ))
+
+propcardat <- propcardat %>% 
+  mutate(feed0 =  case_when(
+    feeding == 0 ~ 0.00001,
+    feeding == 1 ~ 0.99999,
+    TRUE ~ feeding
+  ))
+
+
+formodcar <- glmmTMB(for0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+locmodcar <- glmmTMB(loc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+restmodcar <- glmmTMB(rest0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+intmod <- glmmTMB(intcar0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+invmod <- glmmTMB(invcar0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+carmod <- glmmTMB(car0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+stermodcar <- glmmTMB(ster0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+socmodcar <- glmmTMB(soc0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+actmodcar <- glmmTMB(mov0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+feedmodcar <- glmmTMB(feed0 ~ hunter*MonthNum + (1|pair) + (1|pair:subject),beta_family(link = "logit"), 
+              data = propcardat)
+
+```
+
+### Time spend feeding during car feeding
+
+Hunting coyotes showed a decrease in proportion of time spent feeding during car feedings through time. 
+```{r car feeding plots, echo = F, warning = F}
+
+kable(round(summary(feedmodcar)$coefficients$cond,3))
+temp<-tapply(carfeedsumdat$Feed,
+             list(carfeedsumdat$hunters,carfeedsumdat$Month),mean)
+temp2<-tapply(carfeedsumdat$Feed,
+              list(carfeedsumdat$hunters,carfeedsumdat$Month),se.hunt)
+plot(1:11,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,1),bty="l",ylab="Proportion of time foraging"
+     ,xlab="Month",cex.axis=1.25,cex.lab=1.25,
+     xaxt="n")
+axis(side=1,at=1:11,labels=c("Jan","Feb","Mar","Apr","May","June",
+                             "July","Aug","Sep","Oct","Nov"))
+points(c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       temp[2,],pch=17,col="gray50",type="b",lty=2)
+arrows(x0=1:11,y0=temp[1,]-temp2[1,],x1=1:11,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),pch = c(19,17)
+       ,col = c("black","gray50"))
+
+```
+
+### Time spent active during car feeding 
+
+Nonhunters showed a decrease in time spent active during car feedings through time.
+```{r car active plots, echo = F, warning = F}
+kable(round(summary(actmodcar)$coefficients$cond,3))
+
+temp<-tapply(carfeedsumdat$Move,
+             list(carfeedsumdat$hunters,carfeedsumdat$Month),mean)
+temp2<-tapply(carfeedsumdat$Move,
+              list(carfeedsumdat$hunters,carfeedsumdat$Month),se.hunt)
+plot(1:11,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,1),bty="l",ylab="Proportion of time foraging"
+     ,xlab="Month",cex.axis=1.25,cex.lab=1.25,
+     xaxt="n")
+axis(side=1,at=1:11,labels=c("Jan","Feb","Mar","Apr","May","June",
+                             "July","Aug","Sep","Oct","Nov"))
+points(c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       temp[2,],pch=17,col="gray50",type="b",lty=2)
+arrows(x0=1:11,y0=temp[1,]-temp2[1,],x1=1:11,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+
+
+```
+
+### Time spent interacting with car during car feeding 
+
+Both hunters and nonhunters increased time spent interacting with the car
+during car feedings through time.
+```{r car car plots, echo = F, warning = F}
+kable(round(summary(carmod)$coefficients$cond,3))
+
+tiff(file = "../Figures/carcar.tiff", compression = "lzw",units = "in",
+    width = 7, height = 5, res = 300)
+
+temp<-tapply(carfeedsumdat$Car,
+             list(carfeedsumdat$hunters,carfeedsumdat$Month),mean)
+temp2<-tapply(carfeedsumdat$Car,
+              list(carfeedsumdat$hunters,carfeedsumdat$Month),se.hunt)
+plot(1:11,temp[1,],pch=19,col="black",type="b",
+     ylim=c(0,0.2),bty="l",ylab="Proportion of time interacting with car"
+     ,xlab="Month",cex.axis=1.25,cex.lab=1.25,
+     xaxt="n")
+axis(side=1,at=1:11,labels=c("Jan","Feb","Mar","Apr","May","June",
+                             "July","Aug","Sep","Oct","Nov"))
+points(c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       temp[2,],pch=17,col="gray50",type="b",lty=2)
+arrows(x0=1:11,y0=temp[1,]-temp2[1,],x1=1:11,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05,6.05,7.05,8.05,9.05,10.05,11.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+
+
+```
+
+## Notes on Focal Observation Analyses
+
+This was based on each observation, with a random effect for each subject. Alternatives would be to take each individuals mean value for each month and use that as the response variable. Or we could look at values relative to the pretrial values. These options probably ignore some variablility, so not ideal in that regard, but they also help in model convergence by giving us less zeros to work with (monthly means) or more normal values (proportional change).
+
+## Novel Object Latency to Approach
+
+I used cox proportional hazards to model latency to approach with the same models structure as above: latency ~ hunter*month. There was a possible decrease in latency to approach 5m for both hunters and non-hunters, but no notable trends.
+
+```{r Novel Object Latency, echo=F, warning=F}
+novobjlat <- read.csv("../RawData/AllMonthsNovelLatency.csv")
+novobjlat <- novobjlat[,-1]
+colnames(novobjlat) <- c("timetouch","time1m","time5m","pair","subject","month")
+novobjlat$hunter <- novobjlat$subject%in%hunters
+novobjlat$month<-ordered(novobjlat$month,
+                          levels=c("Pretrial","February","May","August","November"))
+novobjlat$monthnum <- as.numeric(novobjlat$month)
+novobjlat$evtouch <- as.numeric(novobjlat$timetouch < 3600)
+novobjlat$ev1m <- as.numeric(novobjlat$time1m < 3600)
+novobjlat$ev5m <- as.numeric(novobjlat$time5m < 3600)
+
+surv_5m <- Surv(time = novobjlat$time5m,event = novobjlat$ev5m)
+surv_1m <- Surv(time = novobjlat$time1m,event = novobjlat$ev1m)
+surv_touch <- Surv(time = novobjlat$timetouch,event = novobjlat$evtouch)
+fit_5m <- survfit(surv_5m ~ hunter, data = novobjlat)
+fit_1m <- survfit(surv_1m ~ hunter, data = novobjlat)
+fit_touch <- survfit(surv_touch ~ hunter, data = novobjlat)
+
+```
+
+### Latency to approach 5m
+
+```{r 5m latency, echo = F, warning = F}
+summary(coxme(surv_5m ~ 
+                      hunter * monthnum + (1|pair) + (1|subject),
+                    data=novobjlat))
+
+tiff(file = "../Figures/nov5mlat.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(novobjlat$time5m,list(novobjlat$hunter,novobjlat$month),mean)
+temp2<-tapply(novobjlat$time5m,list(novobjlat$hunter,novobjlat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,3600),
+     ylab="Latency to approach 5m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,
+       col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],
+       angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+### Latency to approach 1m
+```{r 1m latency, echo = F, warning=F}
+summary(coxme(surv_1m ~ 
+                      hunter * monthnum + (1|pair) + (1|subject),
+                    data=novobjlat))
+
+tiff(file = "../Figures/nov1mlat.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(novobjlat$time1m,list(novobjlat$hunter,novobjlat$month),mean)
+temp2<-tapply(novobjlat$time1m,list(novobjlat$hunter,novobjlat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,3600),
+     ylab="Latency to approach 1m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,
+       col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],
+       angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+### Latency to touch
+```{r touch latency, echo = F, warning = F}
+summary(coxme(surv_touch ~ 
+                      hunter * monthnum + (1|pair) + (1|subject),
+                    data=novobjlat))
+
+tiff(file = "../Figures/novtouchlat.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(novobjlat$timetouch,list(novobjlat$hunter,novobjlat$month),mean)
+temp2<-tapply(novobjlat$timetouch,list(novobjlat$hunter,novobjlat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,3600),
+     ylab="Latency to touch",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,
+       col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],
+       angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+
+## Puzzle Box
+
+This section presents the proportion of time coyotes spent within a certain distance or interacting with the puzzle box.
+```{r puzzle box analyses, echo = F, warning = F}
+puzzbox <- read.csv("../RawData/AllMonthsPuzzle.csv")
+puzzbox <- puzzbox[,-1]
+colnames(puzzbox) <- c("time1m","time5m","timeinter","timetouch","timesolve","Total","pair","subject","day","month")
+puzzbox$hunter <- puzzbox$subject%in%hunters
+puzzboxprop<-puzzbox
+puzzboxprop[,c(1:6)]<-round(puzzboxprop[,c(1:6)]/puzzboxprop$Total,3)
+puzzboxprop$month<-ordered(puzzboxprop$month,
+                          levels=c("Pretrial","February","May","August","November"))
+
+se.hunt<-function(x){
+  sd(x)/sqrt(8)
+}
+
+
+puzzboxprop$monthnum <- as.numeric(puzzboxprop$month)
+puzzboxprop$time5m <- puzzboxprop$time5m + 0.0000001
+puzzboxprop$time1m <- puzzboxprop$time1m + 0.0000001
+puzzboxprop$timeinter <- puzzboxprop$timeinter + 0.0000001
+mod5m <- glmmTMB(time5m ~ hunter*monthnum + (1|pair) + (1|pair:subject),data = puzzboxprop,
+        family = beta_family(link = "logit"))
+mod1m <- glmmTMB(time1m ~ hunter*monthnum + (1|pair) + (1|pair:subject),data = puzzboxprop,
+        family = beta_family(link = "logit"))
+modinter <- glmmTMB(timeinter ~ hunter*monthnum + (1|pair) + (1|pair:subject),data = puzzboxprop,
+        family = beta_family(link = "logit"))
+
+```
+
+### Time within 5m
+Both hunters and nonhunters increased their time within 5m of the puzzle box through the study, but the increase was greater for hunters.
+```{r puzz 5m, echo = F, warning = F}
+kable(round(summary(mod5m)$coefficients$cond,3))
+
+temp<-tapply(puzzboxprop$time5m,list(puzzboxprop$hunter,puzzboxprop$month),mean)
+temp2<-tapply(puzzboxprop$time5m,list(puzzboxprop$hunter,puzzboxprop$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.2),
+     ylab="Proportion of time within 5m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),
+       y0=temp[2,]-temp2[2,],x1=c(1.05,2.05,3.05,4.05,5.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+### Time within 1m
+Both hunters and nonhunters increased their time within 1m of the puzzle box through the study, but the increase was greater for hunters.
+
+```{r puzz 1m, echo = F, warning = F}
+kable(round(summary(mod1m)$coefficients$cond,3))
+
+tiff(file = "../Figures/puzz1m.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(puzzboxprop$time1m,list(puzzboxprop$hunter,puzzboxprop$month),mean)
+temp2<-tapply(puzzboxprop$time1m,list(puzzboxprop$hunter,puzzboxprop$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.15),
+     ylab="Proportion of time within 1m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),
+       y0=temp[2,]-temp2[2,],x1=c(1.05,2.05,3.05,4.05,5.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+### Time interacting
+Hunters showed a nonsignificant increase in the amount of time they spent interacting with the puzzle box through the study.
+```{r puzz inter, echo = F, warning = F}
+kable(round(summary(modinter)$coefficients$cond,3))
+
+temp<-tapply(puzzboxprop$timeinter,list(puzzboxprop$hunter,puzzboxprop$month),mean)
+temp2<-tapply(puzzboxprop$timeinter,list(puzzboxprop$hunter,puzzboxprop$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.05),
+     ylab="Proportion of time interacting",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),
+       y0=temp[2,]-temp2[2,],x1=c(1.05,2.05,3.05,4.05,5.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+## Latency to approach/touch/solve puzzle box
+I analyzed these data the same way as the novel object latency data. These are a bit more telling though because more data is available (10 trials per month instead of 1).
+
+```{r latency puzzle box, echo = F, warning = F}
+puzzlat <- read.csv("../RawData/AllMonthsPuzzleLatency.csv")
+puzzlat <- puzzlat[,-1]
+colnames(puzzlat) <- c("time1m","time5m","timeint","timesol","timetouch","pair","subject","Month")
+puzzlat$hunter <- puzzlat$subject%in%hunters
+puzzlat$Month <- ordered(puzzlat$Month, levels = c("February","May","August","November"))
+puzzlat$MonthNum <- as.numeric(puzzlat$Month)
+
+
+puzzlat$ev1m <- as.numeric(puzzlat$time1m < 7200)
+puzzlat$ev5m <- as.numeric(puzzlat$time5m < 7200)
+puzzlat$evtouch <- as.numeric(puzzlat$timetouch < 7200)
+puzzlat$evint <- as.numeric(puzzlat$timeint < 7200)
+puzzlat$evsol <- as.numeric(puzzlat$timesol < 7200)
+
+
+surv_5m <- Surv(time = puzzlat$time5m,event = puzzlat$ev5m)
+surv_1m <- Surv(time = puzzlat$time1m,event = puzzlat$ev1m)
+surv_touch <- Surv(time = puzzlat$timetouch,event = puzzlat$evtouch)
+surv_int <- Surv(time = puzzlat$timeint,event = puzzlat$evint)
+surv_sol <- Surv(time = puzzlat$timesol,event = puzzlat$evsol)
+
+fit_5m <- survfit(surv_5m ~ MonthNum, data = puzzlat)
+fit_1m <- survfit(surv_1m ~ hunter, data = puzzlat)
+fit_touch <- survfit(surv_touch ~ hunter, data = puzzlat)
+fit_int <- survfit(surv_int ~ hunter, data = puzzlat)
+fit_sol <- survfit(surv_sol ~ hunter, data = puzzlat)
+
+pl5mmod <- coxme(surv_5m ~ hunter * MonthNum + (1|pair) + (1|subject),data=puzzlat)
+pl1mmod <- coxme(surv_1m ~ hunter * MonthNum + (1|pair) + (1|subject),data=puzzlat)
+pltouchmod <- coxme(surv_touch ~ hunter * MonthNum + (1|pair) + (1|subject),data=puzzlat)
+plintermod <- coxme(surv_int ~ hunter * MonthNum + (1|pair) + (1|subject),data=puzzlat)
+plsolmod <- coxme(surv_sol ~ hunter * MonthNum + (1|pair) + (1|subject),data=puzzlat)
+
+```
+
+### Latency to approach 5m
+Hunting coyotes decreased their latency approach within 5m through the study.
+```{r puzz lat 5m, echo = F, warning = F}
+summary(pl5mmod)
+
+temp<-tapply(puzzlat$time5m,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$time5m,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to approach 5m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,
+       col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+
+
+```
+
+### Latency to approach 1m
+Both hunting and nonhunting coyotes decreased their latency approach within 1m through the study, but the decrease was stronger for hunting coyotes.
+```{r puzz lat 1m, echo = F, warning = F}
+summary(pl1mmod)
+
+temp<-tapply(puzzlat$time1m,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$time1m,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to approach 1m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+### Latency to touch
+Not enough data for model convergence.
+```{r puzz lat touch, echo = F, warning = F}
+summary(pltouchmod)
+
+temp<-tapply(puzzlat$timetouch,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$timetouch,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to touch",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+### Latency to interaction
+Hunting coyotes decreased their latency to interaction through the study.
+
+```{r puzz lat inter, echo = F, warning = F}
+summary(plintermod)
+
+tiff(file = "../Figures/puzzlatint.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+temp<-tapply(puzzlat$timeint,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$timeint,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to interaction",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+
+
+```{r puzz plots combined, echo = F, warning = F}
+tiff(file = "../Figures/puzzcombplot.tiff", compression = "lzw",units = "in",
+     width = 8, height = 8, res = 300)
+
+par(mfrow = c(2,1))
+par(mar = c(5,5,2,2))
+
+temp<-tapply(puzzboxprop$time1m,list(puzzboxprop$hunter,puzzboxprop$month),mean)
+temp2<-tapply(puzzboxprop$time1m,list(puzzboxprop$hunter,puzzboxprop$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.15),
+     ylab="Proportion of time within 1m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+text(x = 1, y = 0.15, labels = "A", cex = 1.5)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),
+       y0=temp[2,]-temp2[2,],x1=c(1.05,2.05,3.05,4.05,5.05),
+       y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topright",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+
+temp<-tapply(puzzlat$timeint,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$timeint,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,8100),
+     ylab="Latency to interaction (sec)",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+text(x = 1, y = 7800, labels = "B",cex = 1.5)
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+# legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+#        pch = c(19,17),col = c("black","gray50"))
+
+```
+
+
+### Latency to solve
+Not enough data for model convergence.
+```{r puzz lat sol, echo = F, warning = F}
+summary(plsolmod)
+
+temp<-tapply(puzzlat$timesol,list(puzzlat$hunter,puzzlat$Month),mean)
+temp2<-tapply(puzzlat$timesol,list(puzzlat$hunter,puzzlat$Month),se.hunt)
+plot(1:4,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to solve",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:4,labels=c("Feb","May","Aug","Nov"))
+arrows(x0=1:4,y0=temp[1,]-temp2[1,],x1=1:4,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+
+```
+
+## Conspecific Analyses
+I observed very minimal interaction during the conspecific test. The only thing I did here was look at the proportion of time coyotes spent within 5m and 1m of the coyote decoy. Neither analysis showed any significant results. Note the lack of p-values. Again, a t-value of ~2 corresponds to p = 0.05.
+
+```{r conspecific dat, echo = F, warning = F}
+condat <- read.csv("../RawData/AllMonthsConspecific.csv")
+condat <- condat[,-1]
+colnames(condat) <- c("time1m","time5m","agg","oth","touch","date","pair","subject","total","month")
+condat$month <- ordered(condat$month,
+                        levels = c("Pretrial","February","May","August","November"))
+condat$hunter <- condat$subject %in% hunters
+condat$monthnum <- as.numeric(condat$month)
+condat$prop1m <- condat$time1m/condat$total
+condat$prop5m <- condat$time5m/condat$total
+
+condat$prop5m <- condat$prop5m + 0.0000001
+condat$prop1m <- condat$prop1m + 0.0000001
+
+conmod5m <- glmmTMB(prop5m ~ hunter*monthnum + (1|pair) + (1|pair:subject),data = condat,
+        family = beta_family(link = "logit"))
+conmod1m <- glmmTMB(prop1m ~ hunter*monthnum + (1|pair) + (1|pair:subject),data = condat,
+        family = beta_family(link = "logit"))
+
+```
+
+```{r conspecific 5m, echo = F, warning = F}
+kable(round(summary(conmod5m)$coefficients$cond,3))
+
+temp<-tapply(condat$prop5m,list(condat$hunter,condat$month),mean)
+temp2<-tapply(condat$prop5m,list(condat$hunter,condat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.05),
+     ylab="Proportion of time within 5m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=19,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = 19,col = c("black","gray50"))
+
+
+```
+
+```{r conspecific 1m, echo = F, warning = F}
+kable(round(summary(conmod1m)$coefficients$cond,3))
+
+temp<-tapply(condat$prop1m,list(condat$hunter,condat$month),mean)
+temp2<-tapply(condat$prop1m,list(condat$hunter,condat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,0.02),
+     ylab="Proportion of time within 1m",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=19,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "topleft",legend = c("Nonhunters","Hunters"),
+       pch = 19,col = c("black","gray50"))
+
+```
+## Conspecific Latency 
+
+```{r conspecific latency, echo = F}
+conlat <- read.csv("../RawData/AllMonthsConspecificLatency.csv")
+head(conlat)
+colnames(conlat) <- c("lat.1m","lat.5m","lat.agg","lat.oth","lat.sm",
+                      "lat.touch","pair","subject","month")
+conlat$hunter <- conlat$subject %in% hunters
+conlat$month <- ordered(conlat$month,
+                        levels = c("Pretrial","February",
+                                   "May","August",
+                                   "November"))
+conlat$monthnum <- as.numeric(conlat$month)
+
+conlat$e1m <- as.numeric(conlat$lat.1m < 3600)
+conlat$e5m <- as.numeric(conlat$lat.5m < 3600)
+conlat$eagg <- as.numeric(conlat$lat.agg < 3600)
+conlat$eoth <- as.numeric(conlat$lat.oth < 3600)
+conlat$esm <- as.numeric(conlat$lat.sm < 3600)
+conlat$etouch <- as.numeric(conlat$lat.touch < 3600)
+
+consurv_5m <- Surv(time = conlat$lat.5m,event = conlat$e5m)
+consurv_1m <- Surv(time = conlat$lat.1m,event = conlat$e1m)
+consurv_touch <- Surv(time = conlat$lat.touch,event = conlat$etouch)
+consurv_agg <- Surv(time = conlat$lat.agg,event = conlat$eagg)
+consurv_oth <- Surv(time = conlat$lat.oth,event = conlat$eoth)
+consurv_sm<- Surv(time = conlat$lat.sm,event = conlat$esm)
+
+
+
+cl5mmod <- coxme(consurv_5m ~ hunter * monthnum + (1|pair) + (1|subject), data=conlat)
+cl1mmod <- coxme(consurv_1m ~ hunter * monthnum + (1|pair) + (1|subject), data=conlat)
+
+
+
+temp<-tapply(conlat$lat.5m,list(conlat$hunter,conlat$month),mean)
+temp2<-tapply(conlat$lat.5m,list(conlat$hunter,conlat$month),se.hunt)
+plot(1:5,temp[1,],pch=19,col="black",type="b",ylim=c(0,7200),
+     ylab="Latency to 5m (sec)",xlab="Month",
+     cex.lab=1.25,cex.axis=1.25,xaxt="n",bty="l")
+points(c(1.05,2.05,3.05,4.05,5.05),temp[2,],pch=17,col="gray50",type="b",lty=2)
+axis(side=1,at=1:5,labels=c("Pre","Feb","May","Aug","Nov"))
+arrows(x0=1:5,y0=temp[1,]-temp2[1,],x1=1:5,
+       y1=temp[1,]+temp2[1,],angle=90,col="black",code=3)
+arrows(x0=c(1.05,2.05,3.05,4.05,5.05),y0=temp[2,]-temp2[2,],
+       x1=c(1.05,2.05,3.05,4.05,5.05),y1=temp[2,]+temp2[2,],angle=90,col="gray50",code=3)
+legend(x = "bottomleft",legend = c("Nonhunters","Hunters"),
+       pch = c(19,17),col = c("black","gray50"))
+```
+
+
+
+## Principle Components Analysis
+
+I spent some time looking at doing a principle components analysis with data from all tests to see if hunting/nonhunting coyotes separate from each other in multivariate space. My idea was to initially conduct a PCA for each month and see if hunting and scavenging coyotes showed any differences in separation throughout the experiment. For example, if there was an effect of foraging treatment, I would expect their pretrial PCA to show little to no separation but the separation to increase as the trials went on. 
+
+This approach was limited by a lack of data, particularly from the novel object and conspecific tests. Excluding these data to facilitate convergence, I worked with just the focal observations and puzzle boxes. Specifically, I used the proportion of time resting, feeding, and moving in both feeding and nonfeeding trials, and the proportion of time withing 5m and 1m during puzzle box trials. There was no noticeable trend of increased separation in multivariate space through time.
+
+To test these patterns statistically, we could us a multivariate ANOVA to see if the coyotes multivariate response responded to hunting. Unless someone has other ideas.
+
+```{r PCA, echo = F, warning = F}
+
+nonfeedmeans<-nonfeedsumdat[,-grep(".se",colnames(nonfeedsumdat))]
+feedmeans<-feedsumdat[,-grep(".se",colnames(feedsumdat))]
+
+pca_nfm <- nonfeedmeans[,c(7,16:22)]
+pca_fm <- feedmeans[,c(7,16:22)]
+pca_nol <- novobjlat[,c(1:8)]
+pca_pb <- puzzboxprop
+pca_plat <- puzzlat[,c(1:9)]
+pca_cd <- condat[,c(8:14)]
+
+# head(pca_nfm)
+colnames(pca_nfm) <- c("rest.nf","ster.nf","feed.nf","social.nf","move.nf",
+                       "month.nf","subject.nf","hunters.nf")
+
+# head(pca_fm)
+colnames(pca_fm) <- c("rest.f","ster.f","feed.f","social.f","move.f",
+                       "month.f","subject.f","hunters.f")
+# head(pca_nol)
+colnames(pca_nol) <- c("no.touch","no.1m","no.5m","no.pair","no.subject",
+                       "no.month","no.hunter","no.monthnum")
+
+# head(pca_pb)
+colnames(pca_pb) <- c("pb.1m","pb.5m","pb.inter","pb.touch","pb.solve",
+                       "pb.total","pb.pair","pb.subject","pb.day","pb.month",
+                       "pb.hunter","pb.monthnum")
+# head(pca_cd)
+colnames(pca_cd) <- c("con.subject","con.total","con.month","con.hunter",
+                       "con.monthnum","con.1m","con.5m")
+head(pca_plat)
+colnames(pca_plat) <- c("pbl.1m","pbl.5m","pbl.int","pbl.sol","pbl.touch","pbl.pair",
+                        "pbl.subject","pbl.month","pbl.hunter")
+
+pca_nfm$subject.nf = as.character(pca_nfm$subject.nf)
+pca_fm$subject.f = as.character(pca_fm$subject.f)
+pca_nol$no.subject = as.character(pca_nol$no.subject)
+pca_pb$pb.subject = as.character(pca_pb$pb.subject)
+pca_cd$con.subject = as.character(pca_cd$con.subject)
+pca_plat$plat.subject = as.character(pca_plat$pbl.subject)
+
+pca_nfm$month.nf = as.character(pca_nfm$month.nf)
+pca_fm$month.f = as.character(pca_fm$month.f)
+pca_nol$no.month = as.character(pca_nol$no.month)
+pca_pb$pb.month = as.character(pca_pb$pb.month)
+pca_cd$con.month = as.character(pca_cd$con.month)
+pca_plat$pbl.month = as.character(pca_plat$pbl.month)
+
+pb.time5 <- pca_pb %>% 
+  group_by(pb.subject,pb.month) %>% 
+  summarize(pb.avg5m = mean(pb.5m))
+pb.time1 <- pca_pb %>% 
+  group_by(pb.subject,pb.month) %>% 
+  summarize(pb.avg1m = mean(pb.1m))
+pb.timeint <- pca_pb %>% 
+  group_by(pb.subject,pb.month) %>% 
+  summarize(pb.avgint = mean(pb.inter))
+pbl.time5 <- pca_plat %>% 
+  group_by(pbl.subject,pbl.month) %>% 
+  summarize(pbl.avg5m = mean(pbl.5m))
+pbl.time1 <- pca_plat %>% 
+  group_by(pbl.subject,pbl.month) %>% 
+  summarize(pbl.avg1m = mean(pbl.1m))
+pbl.timeint <- pca_plat %>% 
+  group_by(pbl.subject,pbl.month) %>% 
+  summarize(pbl.avgint = mean(pbl.int))
+
+
+
+
+pca_pb <- pb.time5 %>% 
+  left_join(pb.time1, by = c("pb.subject","pb.month")) %>% 
+  left_join(pb.timeint, by = c("pb.subject","pb.month"))
+
+pca_pbl <- pbl.time5 %>% 
+  left_join(pbl.time1, by = c("pbl.subject","pbl.month")) %>% 
+  left_join(pbl.timeint, by = c("pbl.subject","pbl.month"))
+
+pca_pbl$pbl.subject <- as.character(pca_pbl$pbl.subject)
+
+pca_dat <- pca_nfm %>% 
+  left_join(pca_fm, by = c("subject.nf" = "subject.f","month.nf" = "month.f")) %>%
+  left_join(pca_pb, by = c("subject.nf"="pb.subject","month.nf"="pb.month")) %>%
+  left_join(pca_nol, by = c("subject.nf" = "no.subject","month.nf"="no.month")) %>% 
+  left_join(pca_cd,by= c("subject.nf"="con.subject","month.nf"="con.month")) %>% 
+  left_join(pca_pbl,by = c("subject.nf" = "pbl.subject","month.nf" = "pbl.month")) %>% 
+  as_tibble() %>% 
+  filter(!is.na(pb.avg5m))
+
+final_pca <- pca_dat %>% 
+  select(subject.nf,
+         month.nf,
+         hunters.nf,
+         rest.nf,
+         feed.nf,
+         move.nf,
+         rest.f,
+         feed.f,
+         move.f,
+         # pb.avg5m,
+         pb.avg1m,
+         pb.avgint,
+         # no.touch,
+         # no.1m,
+         no.5m,
+         # con.1m,
+         # con.5m,
+         # pbl.avg5m,
+         pbl.avg1m
+         # pbl.avgint
+         )
+final_pca[is.na(final_pca$pbl.avg1m),"pbl.avg1m"] <- 7200
+final_pca[,-c(1:3)] <- scale(final_pca[,-c(1:3)])
+months <- unique(final_pca$month.nf)
+final_pca <- final_pca[!is.na(final_pca$no.5m),]
+final_pca[is.na(final_pca$pbl.avg1m),"pbl.avg1m"] <- 7200
+
+
+for(i in 1:5){
+pca_res <- prcomp(final_pca[final_pca$month.nf == months[i],-c(1:3)])
+# print(summary(pca_res))
+plot(pca_res$x[,1],pca_res$x[,2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     main = months[i], pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "PCA axis 1",
+     ylab = "PCA axis 2",
+     xlim = c(-10,7),
+     ylim = c(-3,4))
+# text(x = pca_res$x[,1], y = pca_res$x[,2],
+#      labels = c("1600","1601","1602","1610","1617",
+#                 "1622","1623","1703","1802","1803",
+#                 "1820","1841","1842","1850","1851",
+#                 "1853"),
+#      pos = 4)
+}
+
+summary(pca_res)
+
+
+
+par(mfrow = c(2,2))
+par(mar = c(2,4,2,2))
+
+pca_res <- prcomp(final_pca[,-c(1:3)])
+final_pca$month.num <- as.numeric(ordered(final_pca$month.nf,
+                               levels = c("Pretrial","February","May",
+                                          "August","November")))/2
+# plot(pca_res$x[,1],pca_res$x[,2],
+#      col = rep(c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+#              "black","gray50","gray50","black","black","black","gray50"),5),
+#      cex = final_pca$month.num,
+#      pch = rep(c(17,19,17,19,17,19,17,19,17,
+#              19,17,17,19,19,19,17),5),
+#      xlim = c(-9,5),
+#      ylim = c(-4,5))
+
+tiff(file = "../Figures/pca2.tiff", compression = "lzw",units = "in",
+     width = 7, height = 7, res = 300)
+
+par(mfrow = c(2,2))
+par(mar = c(2,4,2,2))
+plot(pca_res$x[final_pca$month.nf=="Pretrial",1],pca_res$x[final_pca$month.nf=="Pretrial",2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "",
+     ylab = "PCA axis 2",
+     xlim = c(-9,5),
+     ylim = c(-4,5))
+text(x = -8.8, y = 4.3, labels = "A")
+legend(x = "bottomleft", legend = c("Nonhunters","Hunters"),
+       col = c("black","gray50"),
+       pch = c(19,17))
+par(mar = c(2,2,2,2))
+plot(pca_res$x[final_pca$month.nf=="February",1],pca_res$x[final_pca$month.nf=="February",2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "",
+     ylab = "",
+     xlim = c(-9,5),
+     ylim = c(-4,5))
+text(x = -8.8, y = 4.3, labels = "B")
+par(mar = c(4,4,2,2))
+plot(pca_res$x[final_pca$month.nf=="August",1],pca_res$x[final_pca$month.nf=="August",2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "PCA axis 1",
+     ylab = "PCA axis 2",
+     xlim = c(-9,5),
+     ylim = c(-4,5))
+text(x = -8.8, y = 4.3, labels = "C")
+par(mar = c(4,2,2,2))
+plot(pca_res$x[final_pca$month.nf=="November",1],pca_res$x[final_pca$month.nf=="November",2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "PCA axis 1",
+     ylab = "",
+     xlim = c(-9,5),
+     ylim = c(-4,5))
+text(x = -8.8, y = 4.3, labels = "D")
+
+dev.off()
+
+
+tiff(file = "../Figures/pca.tiff", compression = "lzw",units = "in",
+     width = 7, height = 5, res = 300)
+
+pca_res <- prcomp(final_pca[final_pca$month.nf == "Pretrial",-c(1:3)])
+# print(summary(pca_res))
+plot(pca_res$x[,1],pca_res$x[,2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "",
+     ylab = "PCA axis 2",
+     xlim = c(-10,9),
+     ylim = c(-3,4),
+     main = "Pretrial PCA")
+legend(x = "topright", legend = c("nonhunters","hunters"),
+       col = c("black","gray50"),
+       pch = c(19,17))
+par(mar = c(2,4,2,2))
+pca_res <- prcomp(final_pca[final_pca$month.nf == "February",-c(1:3)])
+# print(summary(pca_res))
+plot(pca_res$x[,1],pca_res$x[,2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "",
+     ylab = "PCA axis 2",
+     xlim = c(-10,9),
+     ylim = c(-3,4),
+     main = "February PCA")
+pca_res <- prcomp(final_pca[final_pca$month.nf == "August",-c(1:3)])
+# print(summary(pca_res))
+
+par(mar = c(4,4,2,2))
+plot(pca_res$x[,1],pca_res$x[,2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "PCA axis 1",
+     ylab = "PCA axis 2",
+     xlim = c(-10,9),
+     ylim = c(-3,4),
+     main = "August PCA")
+pca_res <- prcomp(final_pca[final_pca$month.nf == "November",-c(1:3)])
+# print(summary(pca_res))
+
+par(mar = c(4,4,2,2))
+plot(pca_res$x[,1],pca_res$x[,2],
+     col = c("gray50","black","gray50","black","gray50","black","gray50","black","gray50",
+             "black","gray50","gray50","black","black","black","gray50"),
+     pch=c(17,19,17,19,17,19,17,19,17,
+             19,17,17,19,19,19,17),
+     xlab = "PCA axis 1",
+     ylab = "PCA axis 2",
+     xlim = c(-10,9),
+     ylim = c(-3,4),
+     main = "November PCA")
+
+dev.off()
+```
+
+```{r PERMANOVA, echo = F}
+library(vegan)
+final_pca$month.nf <- ordered(final_pca$month.nf,
+                              levels = c("Pretrial","February","May",
+                                         "August","November"))
+final_pca$month.nfNUM <- as.numeric(final_pca$month.nf)
+monthspca <- unique(final_pca$month.nf)
+
+for(i in 1:5){
+temp <- adonis2(final_pca[final_pca$month.nf==monthspca[i],-c(1:3,13)] ~ hunters.nf, 
+        data = final_pca[final_pca$month.nf==monthspca[i],], 
+        method = "euc", 
+        perm = 9999,
+        by = "margin")
+print(temp)
+}
+
+
+```
+

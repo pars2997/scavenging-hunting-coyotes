@@ -1,0 +1,17 @@
+*.Rhistory
+*.Rproj
+*.doc
+*.docx
+*.png
+*.tiff
+*.jpg
+*.jpeg
+*.eps
+.Rproj.user
+Presentations/
+Pictures and Videos/
+Manuscript/
+Figures/
+*.html
+Code/Old Code/
+Code/.Rproj.user/
