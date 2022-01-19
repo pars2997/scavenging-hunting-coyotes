@@ -1,9 +1,6 @@
 This repository contains the necessary R code and data to reproduce the results of Parsons et al. (in review) Scavenging vs hunting affect behavioral traits of an opportunistic carnivore. 
 This project exposed captive coyotes to two different foraging treatments and monitored coyote behavior over one year. 
-The control treatment (scavenging) was scatterfeeding coyotes 6 days per week (standard protocol for the facility) and the experimental treatment (hunting) 
-was to scatterfeed the coyotes 3 days per week and feed them using a mobile prey model the other three days. From November 2019 through November 2020 we 
-observed coyote behavior and presenting a suite of behavioral tests. Observations included documenting behavioral budgets during both feeding and nonfeeding times, 
-novel object tests, multi-access puzzle box tests, and conspecific response tests.
+The control treatment (scavenging) was scatterfeeding coyotes 6 days per week (standard protocol for the facility) and the experimental treatment (hunting) was to scatterfeed the coyotes 3 days per week and feed them using a mobile prey model the other three days. From November 2019 through November 2020 we observed coyote behavior and presenting a suite of behavioral tests. Observations included documenting behavioral budgets during both feeding and nonfeeding times, novel object tests, multi-access puzzle box tests, and conspecific response tests.
 
 There is a single code file for this analysis: coyotemarkdownTMB_withpairs.Rmd
 
